@@ -14,7 +14,8 @@ class CreateChatroomsTable extends Migration
     public function up()
     {
         Schema::create('chatrooms', function (Blueprint $table) {
-            $table->id();
+            $table->id('chatroom_id');
+            $table->string('name');
             $table->timestamps();
         });
     }
