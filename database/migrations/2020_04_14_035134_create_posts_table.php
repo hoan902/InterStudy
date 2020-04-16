@@ -17,8 +17,9 @@ class CreatePostsTable extends Migration
             $table->id('post_id');
             $table->string('title');
             $table->string('body');
+            $table->unsignedBigInteger('classroom_id');
             $table->boolean('status')->default(1);
-            $table->timestamps();
+            $table->timestamps();   
         });
     }
 
