@@ -12,4 +12,8 @@ class Classroom extends Model
     {
         return $this->hasMany(Post::class);
     }
+    public function chatroom()
+    {
+        return $this->hasOne(Chatroom::class);
+    }
 }

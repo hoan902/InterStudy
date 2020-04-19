@@ -8,8 +8,12 @@ class Message extends Model
 {
     protected $guarded = [];
 
-    public function chatroom()
+    // public function Chatroom()
+    // {
+    //     return $this->belongsTo(Chatroom::class);
+    // }
+    public function User()
     {
-        return $this->belongsTo(Chatroom::class);
+        return $this->belongsTo(User::class);
     }
 }

@@ -14,7 +14,7 @@ class ClassroomController extends Controller
      */
     public function index()
     {
-        //
+        return view('classroom.view');
     }
 
     /**
