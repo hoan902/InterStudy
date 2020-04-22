@@ -22,7 +22,6 @@ Route::get('/Testing', function () {
 Auth::routes();
 
 Route::post('/send','ChatroomController@send');
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/classroom','ClassroomController@index');
 
 Auth::routes();
