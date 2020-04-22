@@ -21,7 +21,7 @@ class User extends Authenticatable
     // Using guarded instead
     protected $guarded = [];
 
-    protected $primaryKey = 'user_id';
+    protected $primaryKey = 'id';
 
     /**
      * The attributes that should be hidden for arrays.
