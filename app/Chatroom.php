@@ -16,4 +16,9 @@ class Chatroom extends Model
     {
         return $this->belongsTo(Classroom::class);
     }
+
+    public function Messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

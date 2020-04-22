@@ -7,4 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Tutor extends Model
 {
     protected $guarded = [];
+
+    public function Users()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function Classrooms()
+    {
+        return $this->hasMany(Classroom::class);
+    }
 }

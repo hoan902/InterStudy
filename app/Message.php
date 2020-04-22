@@ -3,17 +3,19 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
+use App\Chatroom;
 
 class Message extends Model
 {
     protected $guarded = [];
 
-    // public function Chatroom()
-    // {
-    //     return $this->belongsTo(Chatroom::class);
-    // }
-    public function User()
+     public function Chatrooms()
+     {
+         return $this->belongsTo(Chatroom::class);
+     }
+    public function Users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(\App\User::class);
     }
 }
