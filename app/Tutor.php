@@ -8,7 +8,7 @@ class Tutor extends Model
 {
     protected $guarded = [];
 
-    public function Users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

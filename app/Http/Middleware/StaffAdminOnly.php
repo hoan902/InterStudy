@@ -6,7 +6,7 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class StaffOnly
+class StaffAdminOnly
 {
     /**
      * Handle an incoming request.
@@ -17,11 +17,11 @@ class StaffOnly
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->user_type === 'staff') {
+        if (Auth::user()->user_type === 'staff'||Auth::user()->user_type === 'admin') {
             return $next($request);
         }
 
-        return route('login');
+        return redirect('/login');
 
     }
 }

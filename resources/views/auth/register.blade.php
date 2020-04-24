@@ -54,7 +54,13 @@
                                     <option value="">-- User type --</option>
                                     <option value="student">Student</option>
                                     <option value="tutor">Tutor</option>
-                                    <!--<option value="staff">Staff</option>-->
+                                    @auth
+                                        @if (Auth::user()->user_type === 'admin')
+                                            <option value="staff">Staff</option>
+                                        @else
+
+                                        @endif
+                                    @endauth
                                 </select>
                                 @error('user_type')
                                 <span class="invalid-feedback" role="alert">

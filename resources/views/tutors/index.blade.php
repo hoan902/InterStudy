@@ -5,18 +5,18 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header"><h3>Students list</h3></div>
+                    <div class="card-header"><h3>Tutor list</h3></div>
 
                     <div class="card-body">
                             <ul>
-                                @forelse($Student as $students)
+                                @forelse($Tutor as $tutors)
                                     <li>
                                         <strong>
-                                            <a href="/students/{{$students->id}}">{{ $students->name }}</a>
-                                        </strong>({{ $students->phone }})
+                                            <a href="/tutors/{{$tutors->id}}">{{ $tutors->name }}</a>
+                                        </strong>({{ $tutors->phone }})
                                     </li>
                                 @empty
-                                    <p>No student to show</p>
+                                    <p>No Tutor to show</p>
                                 @endforelse
                             </ul>
                     </div>

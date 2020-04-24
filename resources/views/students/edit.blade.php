@@ -5,38 +5,37 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header"><h4>New Student Info</h4></div>
+                    <div class="card-header"><h4>Edit Student Info</h4></div>
 
                     <div class="card-body">
-                        <form action="/students" method="POST">
+                        <form action="/students/{{ $studentID->id }}" method="POST">
                             @csrf
+                            @method('PUT')
                             <div>
                                 <label for="name">Name:</label>
-                                <input id="name" type="text" name="name" autocomplete="off" value="{{old('name')}}">
+                                <input id="name" type="text" name="name" autocomplete="off" value="{{ $studentID->name }}">
                                 @error('name')<p style="color: red">{{$message}}</p> @enderror
                             </div>
 
                             <div>
                                 <label for="phone">Phone:</label>
-                                <input id="phone" type="number" name="phone" autocomplete="off" value="{{old('phone')}}">
+                                <input id="phone" type="number" name="phone" autocomplete="off" value="{{ $studentID->phone }}">
                                 @error('phone')<p style="color: red">{{$message}}</p> @enderror
                             </div>
 
                             <div>
                                 <label for="address">Address:</label>
-                                <input id="address" type="text" name="address" autocomplete="off" value="{{old('address')}}">
+                                <input id="address" type="text" name="address" autocomplete="off" value="{{ $studentID->address }}">
                                 @error('address')<p style="color: red">{{$message}}</p> @enderror
                             </div>
-
-                            <div>
+                            <div hidden>
                                 <label for="user_id">User ID: </label>
-                                <input type="text" id="user_id" name="user_id" value="{{\App\User::all()->last()->id}}" disabled>
+                                <input type="text" id="user_id" name="user_id" value="{{$studentID->id}}" disabled>
                                 <br>
                                 <!--This iz for testing, to see what the user type are taken, might make it hidden later-->
                                 <!--There a hole in here, user can mesh with url and go direct to here, so this profile might for user who is not a student, NID FIX-->
-                                <label>User Type: {{\App\User::all()->last()->user_type}}</label>
                             </div>
-                            <button type="submit">Add new Student</button>
+                            <button type="submit">Update</button>
                         </form>
                     </div>
 

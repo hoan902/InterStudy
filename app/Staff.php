@@ -12,7 +12,7 @@ class Staff extends Model
     // In case of Laravel looking for the plural table
     protected $table = 'staff';
 
-    public function Users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

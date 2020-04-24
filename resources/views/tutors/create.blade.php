@@ -5,10 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header"><h4>New Student Info</h4></div>
+                    <div class="card-header"><h4>New Tutor Info</h4></div>
 
                     <div class="card-body">
-                        <form action="/students" method="POST">
+                        <form action="/tutors" method="POST">
                             @csrf
                             <div>
                                 <label for="name">Name:</label>
@@ -36,7 +36,7 @@
                                 <!--There a hole in here, user can mesh with url and go direct to here, so this profile might for user who is not a student, NID FIX-->
                                 <label>User Type: {{\App\User::all()->last()->user_type}}</label>
                             </div>
-                            <button type="submit">Add new Student</button>
+                            <button type="submit">Add new Tutor</button>
                         </form>
                     </div>
 
