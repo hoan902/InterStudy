@@ -21,10 +21,20 @@ Route::get('/Testing', function () {
 });
 Auth::routes();
 
+//Route::get('/admin/user/','UserController@index');
+
 Route::post('/send','ChatroomController@send');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/classroom','ClassroomController@index');
 
-Auth::routes();
-
 Route::get('/getmess','ChatroomController@fetch');
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/students','StudentController@index');
+Route::get('/students/create','StudentController@create');
+Route::post('/students','StudentController@store');
+Route::get('/students/{studentID}','StudentController@show');
+
+Route::prefix('admin')->name('admin.')->group(function (){
+    Route::resource('/user','UserController',['except'=>['show','create','store']]);
+});
+
