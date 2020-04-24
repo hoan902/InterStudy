@@ -16,7 +16,7 @@
 
                         <strong>Address</strong>
                         <p>{{ $staffID->address }}</p>
-                        <a  href="/staffs">Back to students page</a>
+                        <a  href="/staffs">Back to staffs page</a>
                         <a href="/staffs/{{$staffID->id}}/edit">Edit staff info</a>
                     </div>
 

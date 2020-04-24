@@ -34,6 +34,8 @@
                                 <br>
                                 <!--This iz for testing, to see what the user type are taken, might make it hidden later-->
                                 <!--There a hole in here, user can mesh with url and go direct to here, so this profile might for user who is not a student, NID FIX-->
+{{--                                There also some problem where staff and admin cannot add user at the same time since it take the lastest user--}}
+{{--                                if admin is adding a user at the same time with staff, the one who add later might be assign with the wrong user--}}
                                 <label>User Type: {{\App\User::all()->last()->user_type}}</label>
                             </div>
                             <button type="submit">Add new Student</button>
