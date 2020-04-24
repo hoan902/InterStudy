@@ -1,0 +1,4 @@
+Hoan make change (24/4/2020) tu ghi nha:
+_ Allow only staff to register user (fix in Register middleware)
+_ fix auto-login when create new user
+_ can direct to different page depend on different user_type'
