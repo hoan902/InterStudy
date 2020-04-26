@@ -20,7 +20,15 @@ class CreateStudentsTable extends Migration
             $table->string('address');
             $table->unsignedBigInteger('user_id');
             $table->boolean('status')->default(1);
+            $table->string('profile_image')->default('default.jpg');
+            $table->date('DoB');
+            $table->string('gender');
             $table->timestamps();
+            // if the user account is deleted, this profile is deleted
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
 //        Schema::table('students', function (Blueprint $table) {
 //            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

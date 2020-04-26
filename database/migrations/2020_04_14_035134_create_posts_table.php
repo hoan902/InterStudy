@@ -21,6 +21,18 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->boolean('status')->default(1);
             $table->timestamps();
+            // if the user account is deleted, this post is deleted
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+        });
+        Schema::table('comments', function (Blueprint $table) {
+            // if the post contain the comment is deleted, the comment is deleted
+            $table->foreign('post_id')
+                ->references('id')
+                ->on('posts')
+                ->onDelete('cascade');
         });
     }
 

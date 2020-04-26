@@ -69,7 +69,7 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
-                        @if (Auth::user()->user_type == 'staff'||'admin')
+                        @if (Auth::user()->user_type == 'staff'||Auth::user()->user_type == 'admin')
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}">Add new user</a>
                             @endif

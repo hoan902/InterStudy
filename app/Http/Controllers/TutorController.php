@@ -38,11 +38,15 @@ class TutorController extends Controller
             'name' => 'required',
             'phone' => 'required',
             'address' => 'required',
+            'DoB' => 'required|date',
+            'gender' => 'required',
         ]);
         $tutorNew = new Tutor();
         $tutorNew -> name = request('name');
         $tutorNew -> phone = request('phone');
         $tutorNew -> address = request('address');
+        $tutorNew -> DoB = request('DoB');
+        $tutorNew -> gender = request('gender');
         $tutorNew->user()->associate($accosiateUserId);
         $tutorNew->save();
         // Student::create($studentType);
@@ -74,22 +78,40 @@ class TutorController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Tutor  $tutor
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Tutor $tutorID)
     {
+        $userID = $tutorID->user_id;
         Request()->validate([
             'name' => 'required',
             'phone' => 'required',
             'address' => 'required',
+            'DoB' => 'required|date',
+            'gender' => 'required',
+            'profile_image' => 'image',
         ]);
-        $tutorID -> name = request('name');
-        $tutorID -> phone = request('phone');
-        $tutorID -> address = request('address');
-        $tutorID->user()->associate($tutorID);
-        $tutorID->save();
+        if(request()->has('profile_image')){
+            $imageUploaded = request()->file('profile_image');
+            $imageName = time() . '.' . $imageUploaded -> getClientOriginalExtension();
+            $imagePatch = public_path('/ProfileImage/');
+            $imageUploaded->move($imagePatch,$imageName);
+            $tutorID -> name = request('name');
+            $tutorID -> phone = request('phone');
+            $tutorID -> address = request('address');
+            $tutorID -> DoB = request('DoB');
+            $tutorID -> gender = request('gender');
+            $tutorID -> profile_image = $imageName;
+            $tutorID->user()->associate($tutorID->user_id);
+            $tutorID->save();
+        }else{
+            $tutorID -> name = request('name');
+            $tutorID -> phone = request('phone');
+            $tutorID -> address = request('address');
+            $tutorID -> DoB = request('DoB');
+            $tutorID -> gender = request('gender');
+            $tutorID->user()->associate($tutorID->user_id);
+            $tutorID->save();
+        }
         return redirect('/tutors/'. $tutorID->id);
     }
 

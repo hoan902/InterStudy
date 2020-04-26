@@ -28,11 +28,15 @@ class StaffController extends Controller
             'name' => 'required',
             'phone' => 'required',
             'address' => 'required',
+            'DoB' => 'required|date',
+            'gender' => 'required',
         ]);
         $staffNew = new Staff();
         $staffNew -> name = request('name');
         $staffNew -> phone = request('phone');
         $staffNew -> address = request('address');
+        $staffNew -> DoB = request('DoB');
+        $staffNew -> gender = request('gender');
         $staffNew->user()->associate($accosiateUserId);
         $staffNew->save();
         // Student::create($studentType);
@@ -59,12 +63,32 @@ class StaffController extends Controller
             'name' => 'required',
             'phone' => 'required',
             'address' => 'required',
+            'DoB' => 'required|date',
+            'gender' => 'required',
+            'profile_image' => 'image',
         ]);
-        $staffID -> name = request('name');
-        $staffID -> phone = request('phone');
-        $staffID -> address = request('address');
-        $staffID->user()->associate($staffID);
-        $staffID->save();
-        return redirect('/students/'. $staffID->id);
+        if(request()->has('profile_image')){
+            $imageUploaded = request()->file('profile_image');
+            $imageName = time() . '.' . $imageUploaded -> getClientOriginalExtension();
+            $imagePatch = public_path('/ProfileImage/');
+            $imageUploaded->move($imagePatch,$imageName);
+            $staffID -> name = request('name');
+            $staffID -> phone = request('phone');
+            $staffID -> address = request('address');
+            $staffID -> DoB = request('DoB');
+            $staffID -> gender = request('gender');
+            $staffID -> profile_image = $imageName;
+            $staffID->user()->associate($staffID->user_id);
+            $staffID->save();
+        }else{
+            $staffID -> name = request('name');
+            $staffID -> phone = request('phone');
+            $staffID -> address = request('address');
+            $staffID -> DoB = request('DoB');
+            $staffID -> gender = request('gender');
+            $staffID->user()->associate($staffID->user_id);
+            $staffID->save();
+        }
+        return redirect('/staffs/'. $staffID->id);
     }
 }

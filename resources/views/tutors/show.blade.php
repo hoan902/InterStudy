@@ -8,16 +8,27 @@
                     <div class="card-header"><h4>Tutor Detail</h4></div>
 
                     <div class="card-body">
-                        <strong>Name</strong>
-                        <p>{{ $tutorID->name}}</p>
+                        <img src="/ProfileImage/{{ $tutorID->profile_image }}" style="width: 150px; height:150px; float: left; border-radius: 50%; margin-right: 25px;">
+                        <h1>{{ $tutorID->user->email }} Profile</h1>
+                        <div class="card-columns">
+                            <strong>Name</strong>
+                            <p>{{ $tutorID->name}}</p>
 
-                        <strong>phone</strong>
-                        <p>{{ $tutorID->phone }}</p>
+                            <strong>phone</strong>
+                            <p>{{ $tutorID->phone }}</p>
 
-                        <strong>Address</strong>
-                        <p>{{ $tutorID->address }}</p>
-                        <a  href="/tutors">Back to tutor page</a>
-                        <a href="/tutors/{{$tutorID->id}}/edit">Edit student info</a>
+                            <strong>Address</strong>
+                            <p>{{ $tutorID->address }}</p>
+
+                            <strong>Day of Birth</strong>
+                            <p>{{ $tutorID->DoB }}</p>
+
+                            <strong>Gender</strong>
+                            <p>{{ $tutorID->gender }}</p>
+                        </div>
+
+                        <a class="btn btn-primary" style="float: inherit" href="/tutors">Back to tutor page</a>
+                        <a class="btn btn-success" style="float: right" href="/tutors/{{$tutorID->id}}/edit">Edit tutor info</a>
                     </div>
 
                 </div>

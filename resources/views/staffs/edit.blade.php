@@ -8,9 +8,15 @@
                     <div class="card-header"><h4>Edit Staff Info</h4></div>
 
                     <div class="card-body">
-                        <form action="/staffs/{{ $staffID->id }}" method="POST">
+                        <form action="/staffs/{{ $staffID->id }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
+                            <div>
+                                <label for="profile_image">Profile Image (optional)</label>
+                                <input id="profile_image" type="file" name="profile_image" autocomplete="off" value="{{ $staffID->profile_image }}">
+                                @error('profile_image')<p style="color: red">{{$message}}</p> @enderror
+                            </div>
+
                             <div>
                                 <label for="name">Name:</label>
                                 <input id="name" type="text" name="name" autocomplete="off" value="{{ $staffID->name }}">
@@ -27,6 +33,22 @@
                                 <label for="address">Address:</label>
                                 <input id="address" type="text" name="address" autocomplete="off" value="{{ $staffID->address }}">
                                 @error('address')<p style="color: red">{{$message}}</p> @enderror
+                            </div>
+
+                            <div>
+                                <label for="DoB">Day of Birth:</label>
+                                <input id="DoB" type="date" name="DoB" autocomplete="off" value="{{ $staffID->DoB }}">
+                                @error('DoB')<p style="color: red">{{$message}}</p> @enderror
+                            </div>
+
+                            <div>
+                                <label for="gender">Gender:</label>
+                                <select id="gender" type="radio" name="gender" autocomplete="off">
+                                    <option value="Male" @if($staffID->gender == 'Male') selected @endif>Male</option>
+                                    <option value="Female"@if($staffID->gender == 'Female') selected @endif>Female</option>
+                                    <option value="Other"@if($staffID->gender == 'Other') selected @endif>Other</option>
+                                </select>
+                                @error('gender')<p style="color: red">{{$message}}</p> @enderror
                             </div>
                             <div hidden>
                                 <label for="user_id">User ID: </label>

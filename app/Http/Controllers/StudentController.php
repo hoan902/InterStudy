@@ -29,11 +29,15 @@ class StudentController extends Controller
             'name' => 'required',
             'phone' => 'required',
             'address' => 'required',
+            'DoB' => 'required|date',
+            'gender' => 'required',
         ]);
         $studentType = new Student();
         $studentType -> name = request('name');
         $studentType -> phone = request('phone');
         $studentType -> address = request('address');
+        $studentType -> DoB = request('DoB');
+        $studentType -> gender = request('gender');
         $studentType->user()->associate($accosiateUserId);
         $studentType->save();
        // Student::create($studentType);
@@ -60,12 +64,32 @@ class StudentController extends Controller
             'name' => 'required',
             'phone' => 'required',
             'address' => 'required',
+            'DoB' => 'required|date',
+            'gender' => 'required',
+            'profile_image' => 'image',
         ]);
-        $studentID -> name = request('name');
-        $studentID -> phone = request('phone');
-        $studentID -> address = request('address');
-        $studentID->user()->associate($studentID);
-        $studentID->save();
+        if(request()->has('profile_image')) {
+            $imageUploaded = request()->file('profile_image');
+            $imageName = time() . '.' . $imageUploaded->getClientOriginalExtension();
+            $imagePatch = public_path('/ProfileImage/');
+            $imageUploaded->move($imagePatch, $imageName);
+            $studentID -> name = request('name');
+            $studentID -> phone = request('phone');
+            $studentID -> address = request('address');
+            $studentID -> DoB = request('DoB');
+            $studentID -> gender = request('gender');
+            $studentID -> profile_image = $imageName;
+            $studentID->user()->associate($studentID->user_id);
+            $studentID->save();
+        }else{
+            $studentID -> name = request('name');
+            $studentID -> phone = request('phone');
+            $studentID -> address = request('address');
+            $studentID -> DoB = request('DoB');
+            $studentID -> gender = request('gender');
+            $studentID->user()->associate($studentID->user_id);
+            $studentID->save();
+        }
         return redirect('/students/'. $studentID->id);
     }
 

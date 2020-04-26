@@ -20,6 +20,30 @@ class CreateClassroomsTable extends Migration
             $table->unsignedBigInteger('student_id');
             $table->boolean('status')->default(1);
             $table->timestamps();
+            // if the tutor profile is deleted, this classroom is deleted
+            $table->foreign('tutor_id')
+                ->references('id')
+                ->on('tutors')
+                ->onDelete('cascade');
+            // if the student profile is deleted, this classroom is deleted
+            $table->foreign('student_id')
+                ->references('id')
+                ->on('students')
+                ->onDelete('cascade');
+        });
+        Schema::table('chatrooms', function (Blueprint $table) {
+            // if the classroom is deleted, this chatroom is deleted
+            $table->foreign('classroom_id')
+                ->references('id')
+                ->on('classrooms')
+                ->onDelete('cascade');
+        });
+        Schema::table('posts', function (Blueprint $table) {
+            // if the classroom is deleted, this post is deleted
+            $table->foreign('classroom_id')
+                ->references('id')
+                ->on('classrooms')
+                ->onDelete('cascade');
         });
     }
 

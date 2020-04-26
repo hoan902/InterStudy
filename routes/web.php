@@ -23,6 +23,7 @@ Auth::routes();
 
 //Route::get('/admin/user/','UserController@index');
 
+Route::get('/profile','UserController@profile');
 Route::post('/send','ChatroomController@send');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/classroom','ClassroomController@index');

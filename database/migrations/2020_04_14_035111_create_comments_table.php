@@ -20,6 +20,11 @@ class CreateCommentsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->boolean('status')->default(1);
             $table->timestamps();
+            // if the user who create the comment is deleted, the comment is deleted
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

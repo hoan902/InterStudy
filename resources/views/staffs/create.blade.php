@@ -29,6 +29,23 @@
                             </div>
 
                             <div>
+                                <label for="DoB">Day of Birth:</label>
+                                <input id="DoB" type="date" name="DoB" autocomplete="off" value="{{old('DoB')}}">
+                                @error('DoB')<p style="color: red">{{$message}}</p> @enderror
+                            </div>
+
+                            <div>
+                                <label for="gender">Gender:</label>
+                                <select id="gender" type="radio" name="gender" autocomplete="off" value="{{old('gender')}}">
+                                    <option value="" selected disabled hidden>-- choose your gender --</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                @error('gender')<p style="color: red">{{$message}}</p> @enderror
+                            </div>
+
+                            <div>
                                 <label for="user_id">User ID: </label>
                                 <input type="text" id="user_id" name="user_id" value="{{\App\User::all()->last()->id}}" disabled>
                                 <br>

@@ -20,6 +20,16 @@ class CreateMessagesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->boolean('status')->default(1);
             $table->timestamps();
+            // if the user account who create this message is deleted, this message is deleted
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+            // if the chatroom is deleted, this message is deleted
+            $table->foreign('chatroom_id')
+                ->references('id')
+                ->on('chatrooms')
+                ->onDelete('cascade');
         });
     }
 
