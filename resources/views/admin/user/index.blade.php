@@ -7,13 +7,13 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">User Account List</div>
-
                 <div class="card-body">
                     <table style="width:100%">
                         <tr>
                             <th>id</th>
                             <th>email</th>
                             <th>User Type</th>
+                            <th>status</th>
                             <th>action</th>
                         </tr>
                         @forelse($User as $users)
@@ -21,12 +21,34 @@
                                 <td>{{$users->id}}</td>
                                 <td>{{ $users->email }}</td>
                                 <td>{{ $users->user_type }}</td>
+                                @if($users->user_type == 'student')
+                                    @if($users->student->status == 1)
+                                        <td style="color: limegreen"> Activate</td>
+                                    @else
+                                        <td style="color: red"> Deactivate</td> @endif
+                                @elseif($users->user_type == 'tutor')
+                                    @if($users->tutor->status == 1)
+                                        <td style="color: limegreen"> Activate</td>
+                                    @else
+                                        <td style="color: red"> Deactivate</td> @endif
+                                @elseif($users->user_type == 'staff')
+                                    @if($users->staff->status == 1)
+                                        <td style="color: limegreen"> Activate</td>
+                                    @else
+                                        <td style="color: red"> Deactivate</td> @endif
+                                @elseif($users->user_type == 'admin')
+                                    @if($users->admin->status == 1)
+                                        <td style="color: limegreen"> Activate</td>
+                                    @else
+                                        <td style="color: red"> Deactivate</td> @endif
+                                @endif
                                 <td>
-                                    <a href="{{route('admin.user.edit', $users->id)}}"><button type="button" class="btn btn-primary float-left">Change Role</button></a>
                                     <form action="{{ route('admin.user.destroy', $users->id) }}" method="POST" class="float-left">
                                         @csrf
                                         {{method_field('DELETE')}}
-                                        <button type="submit" class="btn btn-warning">Disable account</button>
+                                        <button type="submit" class="btn btn-warning"
+                                                @if($users->user_type == 'admin')
+                                                hidden @endif>Disable account</button>
                                     </form>
 
                                 </td>

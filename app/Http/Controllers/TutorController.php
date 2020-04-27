@@ -5,15 +5,20 @@ namespace App\Http\Controllers;
 use App\Tutor;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class TutorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
-     *
      */
     public function index()
     {
+        $this->authorize('StaffAdminAuthorize');
         $Tutor = Tutor::latest()->paginate(10);
 
         return view('tutors.index',compact('Tutor'));
@@ -24,6 +29,7 @@ class TutorController extends Controller
      */
     public function create()
     {
+        $this->authorize('StaffAdminAuthorize');
         return view('tutors.create');
     }
 
@@ -33,6 +39,7 @@ class TutorController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('StaffAdminAuthorize');
         $accosiateUserId = User::all()->last()->id;
         Request()->validate([
             'name' => 'required',
@@ -56,11 +63,10 @@ class TutorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Tutor  $tutor
-     * @return \Illuminate\Http\Response
      */
     public function show(Tutor $tutorID)
     {
+        $this->authorize('StaffAdminAuthorize');
         return view('tutors.show',compact('tutorID'));
     }
 
@@ -112,7 +118,10 @@ class TutorController extends Controller
             $tutorID->user()->associate($tutorID->user_id);
             $tutorID->save();
         }
-        return redirect('/tutors/'. $tutorID->id);
+        if(Auth::user()->user_type == 'staff'||Auth::user()->user_type == 'admin'){
+            return redirect('/tutors/'. $tutorID->id);
+        }
+        return redirect('/profile');
     }
 
     /**

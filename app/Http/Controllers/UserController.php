@@ -15,6 +15,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
     }
 
     public function profile()
@@ -24,6 +25,7 @@ class UserController extends Controller
 
     public function index()
     {
+        $this->authorize('AdminAuthorize');
         $User = User::latest()->paginate(10);
 
         return view('admin.user.index',compact('User'));

@@ -6,9 +6,14 @@ use Illuminate\Http\Request;
 
 class StaffController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //Display a listing of students.
     public function index()
     {
+        $this->authorize('StaffAdminAuthorize');
         $Staff = Staff::latest()->paginate(10);
 
         return view('staffs.index',compact('Staff'));
@@ -17,12 +22,14 @@ class StaffController extends Controller
     //Show the form for creating a new student.
     public function create()
     {
+        $this->authorize('StaffAdminAuthorize');
         return view('staffs.create');
     }
 
     //Store a newly created student in storage.
     public function store(Request $request)
     {
+        $this->authorize('StaffAdminAuthorize');
         $accosiateUserId = \App\User::all()->last()->id;
         Request()->validate([
             'name' => 'required',
@@ -47,6 +54,7 @@ class StaffController extends Controller
     //Display the specified student.
     public function show(Staff $staffID)
     {
+        $this->authorize('StaffAdminAuthorize');
         return view('staffs.show',compact('staffID'));
     }
 

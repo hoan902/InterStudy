@@ -61,9 +61,6 @@ class RegisterController extends Controller
         else if (User::all()->last()->user_type == 'staff') {
             return '/staffs/create';
         }
-        else if (User::all()->last()->user_type == 'admin') {
-            return '/admins/create';
-        }
         return '/home';
     }
 
@@ -77,7 +74,7 @@ class RegisterController extends Controller
     {
         //middleware stop process if user is a guest
         $this->middleware('auth')->except('logout');
-        //middleware stop user if they are not staff (didn't add the error exception yet)
+        //middleware stop user if they are not staff or admin (didn't add the error exception yet)
         $this->middleware('staffAdmin');
     }
 
