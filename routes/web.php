@@ -26,7 +26,6 @@ Auth::routes();
 Route::get('/profile','UserController@profile');
 Route::post('/send','ChatroomController@send');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/classroom','ClassroomController@index');
 
 Route::get('/getmess','ChatroomController@fetch');
 
@@ -53,6 +52,11 @@ Route::post('/staffs','StaffController@store');
 Route::get('/staffs/{staffID}','StaffController@show');
 Route::get('/staffs/{staffID}/edit','StaffController@edit');
 Route::put('/staffs/{staffID}','StaffController@update');
+
+//CLASSROOM ROUTE
+Route::get('/classrooms','ClassroomController@index');
+Route::get('/classrooms/create','ClassroomController@create');
+Route::post('/classrooms','ClassroomController@store');
 
 Route::prefix('admin')->name('admin.')->group(function (){
     Route::resource('/user','UserController',['except'=>['show','create','store']]);

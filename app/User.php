@@ -60,11 +60,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Message::class);
     }
-    public function Classrooms()
+    public function Classroom()
     {
         return $this->hasMany(Classroom::class);
     }
-    public function Chatrooms()
+    public function Chatroom()
     {
         return $this->hasMany(Chatroom::class);
     }
