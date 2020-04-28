@@ -64,9 +64,9 @@ class ClassroomController extends Controller
      * @param  \App\Classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function show(Classroom $classroom)
+    public function show(Classroom $classID)
     {
-        return view('classrooms.view');
+        return view('classrooms.view',compact($classID));
     }
 
     /**

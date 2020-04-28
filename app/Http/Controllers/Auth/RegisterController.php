@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Admin;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Staff;
+use App\Student;
 use App\User;
+use App\Tutor;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
@@ -52,15 +56,15 @@ class RegisterController extends Controller
     //Redirect to each create form depend on user_type to continue insert profile info of user
     protected function redirectTo()
     {
-        if (User::all()->last()->user_type == 'student') {
-            return '/students/create';
-        }
-        else if (User::all()->last()->user_type == 'tutor') {
-            return '/tutors/create';
-        }
-        else if (User::all()->last()->user_type == 'staff') {
-            return '/staffs/create';
-        }
+//        if (User::all()->last()->user_type == 'student') {
+//            return '/students/create';
+//        }
+//        else if (User::all()->last()->user_type == 'tutor') {
+//            return '/tutors/create';
+//        }
+//        else if (User::all()->last()->user_type == 'staff') {
+//            return '/staffs/create';
+//        }
         return '/home';
     }
 
@@ -90,6 +94,11 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'user_type'=> ['required','string'],
+            'name' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'DoB' => 'required|date',
+            'gender' => 'required',
         ]);
     }
 
@@ -101,11 +110,53 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        User::create([
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'user_type'=> $data['user_type'],
         ]);
+        if(User::all()->last()->user_type == 'tutor'){
+            $accosiateUserId = User::all()->last()->id;
+            $userProfile = new Tutor();
+        }else if(User::all()->last()->user_type == 'student'){
+            $accosiateUserId = User::all()->last()->id;
+            $userProfile = new Student();
+        }else if(User::all()->last()->user_type == 'staff'){
+            $accosiateUserId = User::all()->last()->id;
+            $userProfile = new Staff();
+        }else if(User::all()->last()->user_type == 'admin'){
+            $accosiateUserId = User::all()->last()->id;
+            $userProfile = new Admin();
+        }
+        $userProfile -> name = request('name');
+        $userProfile -> phone = request('phone');
+        $userProfile -> address = request('address');
+        $userProfile -> DoB = request('DoB');
+        $userProfile -> gender = request('gender');
+        $userProfile->user()->associate($accosiateUserId);
+        $userProfile->save();
+
         //should have a successful flash message to show. But idk how to do it yet
+    }
+    public function store(Request $request)
+    {
+
+        $accosiateUserId = User::all()->last()->id;
+        Request()->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'DoB' => 'required|date',
+            'gender' => 'required',
+        ]);
+        $tutorNew = new Tutor();
+        $tutorNew -> name = request('name');
+        $tutorNew -> phone = request('phone');
+        $tutorNew -> address = request('address');
+        $tutorNew -> DoB = request('DoB');
+        $tutorNew -> gender = request('gender');
+        $tutorNew->user()->associate($accosiateUserId);
+        $tutorNew->save();
+        // Student::create($studentType);
     }
 }

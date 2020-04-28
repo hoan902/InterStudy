@@ -15,6 +15,6 @@ class Student extends Model
 
     public function Classrooms()
     {
-        return $this->belongsToMany(Classroom::class);
+        return $this->belongsTo(Classroom::class);
     }
 }

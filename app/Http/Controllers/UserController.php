@@ -26,7 +26,7 @@ class UserController extends Controller
     public function index()
     {
         $this->authorize('AdminAuthorize');
-        $User = User::latest()->paginate(10);
+        $User = User::all();
 
         return view('admin.user.index',compact('User'));
     }

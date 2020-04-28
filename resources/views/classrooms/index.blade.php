@@ -8,17 +8,24 @@
                     <div class="card-header"><h3>List of Classrooms</h3></div>
 
                     <div class="card-body">
-                        <ul>
+                        <table style="width:100%" class="table-sm">
+                            <tr>
+                                <th>id</th>
+                                <th>Class Name</th>
+                            </tr>
                             @forelse($Classroom as $classrooms)
-                                <li>
+                                <td>
                                     <strong>
-                                        <a href="/classrooms/{{$classrooms->id}}">{{ $classrooms->name }}</a>
+                                        {{ $classrooms->id }}
                                     </strong>
-                                </li>
+                                </td>
+                                <td>
+                                    <a href="/classrooms/{{$classrooms->id}}">{{ $classrooms->name }}</a>
+                                </td>
                             @empty
                                 <p>No classrooms to show</p>
                             @endforelse
-                        </ul>
+                        </table>
                     </div>
                 </div>
             </div>
