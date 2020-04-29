@@ -14,10 +14,9 @@ class ClassroomController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Classroom $classroom)
+    public function index()
     {
-        $posts = $classroom->Posts()->get();
-        return view('classroom.view',compact('classroom'))->with(compact('posts'));
+        return view('classroom.view');
     }
 
     /**
@@ -25,16 +24,11 @@ class ClassroomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Classroom $classroom)
+    public function create()
     {
-        $classroom->Posts()->create([
-            'title'=> request()->title,
-            'content' => request()->postarea,
-            'user_id' =>auth()->user()->id
-        ]);
-        return redirect('/classroom/'.$classroom->id);
+        //
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -88,6 +82,6 @@ class ClassroomController extends Controller
      */
     public function destroy(Classroom $classroom)
     {
-        
+        //
     }
 }

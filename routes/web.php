@@ -26,14 +26,8 @@ Auth::routes();
 Route::get('/profile','UserController@profile');
 Route::post('/send','ChatroomController@send');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/disable','StatusController@view');
-//Please use route model binding in this route
-//CLASSROOM RELATED ROUTE
-Route::get('/classroom/{classroom}','ClassroomController@index');
-Route::post('/classroom/{classroom}/post','ClassroomController@create');
-Route::get('/post/{post}/delete','PostController@delete');
-Route::get('/classroom/{classroom}/post/{post}/edit','PostController@edit');
-Route::post('/classroom/{classroom}/post/{post}/update','PostController@update');
+Route::get('/classroom','ClassroomController@index');
+
 Route::get('/getmess','ChatroomController@fetch');
 
 //STUDENT ROUTE
