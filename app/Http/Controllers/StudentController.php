@@ -23,32 +23,32 @@ class StudentController extends Controller
     //Show the form for creating a new student.
     public function create()
     {
-        $this->authorize('StaffAdminAuthorize');
-        return view('students.create');
+//        $this->authorize('StaffAdminAuthorize');
+//        return view('students.create');
     }
 
     //Store a newly created student in storage.
     public function store(Request $request)
     {
-        $this->authorize('StaffAdminAuthorize');
-        $accosiateUserId = \App\User::all()->last()->id;
-        Request()->validate([
-            'name' => 'required',
-            'phone' => 'required',
-            'address' => 'required',
-            'DoB' => 'required|date',
-            'gender' => 'required',
-        ]);
-        $studentType = new Student();
-        $studentType -> name = request('name');
-        $studentType -> phone = request('phone');
-        $studentType -> address = request('address');
-        $studentType -> DoB = request('DoB');
-        $studentType -> gender = request('gender');
-        $studentType->user()->associate($accosiateUserId);
-        $studentType->save();
-       // Student::create($studentType);
-        return redirect('/students');
+//        $this->authorize('StaffAdminAuthorize');
+//        $accosiateUserId = \App\User::all()->last()->id;
+//        Request()->validate([
+//            'name' => 'required',
+//            'phone' => 'required',
+//            'address' => 'required',
+//            'DoB' => 'required|date',
+//            'gender' => 'required',
+//        ]);
+//        $studentType = new Student();
+//        $studentType -> name = request('name');
+//        $studentType -> phone = request('phone');
+//        $studentType -> address = request('address');
+//        $studentType -> DoB = request('DoB');
+//        $studentType -> gender = request('gender');
+//        $studentType->user()->associate($accosiateUserId);
+//        $studentType->save();
+//       // Student::create($studentType);
+//        return redirect('/students');
     }
 
 

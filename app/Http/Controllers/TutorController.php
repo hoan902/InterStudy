@@ -19,7 +19,7 @@ class TutorController extends Controller
     public function index()
     {
         $this->authorize('StaffAdminAuthorize');
-        $Tutor = Tutor::latest()->paginate(10);
+        $Tutor = Tutor::all();
 
         return view('tutors.index',compact('Tutor'));
     }
@@ -29,8 +29,8 @@ class TutorController extends Controller
      */
     public function create()
     {
-        $this->authorize('StaffAdminAuthorize');
-        return view('tutors.create');
+//        $this->authorize('StaffAdminAuthorize');
+//        return view('tutors.create');
     }
 
     /**
@@ -39,25 +39,25 @@ class TutorController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize('StaffAdminAuthorize');
-        $accosiateUserId = User::all()->last()->id;
-        Request()->validate([
-            'name' => 'required',
-            'phone' => 'required',
-            'address' => 'required',
-            'DoB' => 'required|date',
-            'gender' => 'required',
-        ]);
-        $tutorNew = new Tutor();
-        $tutorNew -> name = request('name');
-        $tutorNew -> phone = request('phone');
-        $tutorNew -> address = request('address');
-        $tutorNew -> DoB = request('DoB');
-        $tutorNew -> gender = request('gender');
-        $tutorNew->user()->associate($accosiateUserId);
-        $tutorNew->save();
-        // Student::create($studentType);
-        return redirect('/tutors');
+//        $this->authorize('StaffAdminAuthorize');
+//        $accosiateUserId = User::all()->last()->id;
+//        Request()->validate([
+//            'name' => 'required',
+//            'phone' => 'required',
+//            'address' => 'required',
+//            'DoB' => 'required|date',
+//            'gender' => 'required',
+//        ]);
+//        $tutorNew = new Tutor();
+//        $tutorNew -> name = request('name');
+//        $tutorNew -> phone = request('phone');
+//        $tutorNew -> address = request('address');
+//        $tutorNew -> DoB = request('DoB');
+//        $tutorNew -> gender = request('gender');
+//        $tutorNew->user()->associate($accosiateUserId);
+//        $tutorNew->save();
+//        // Student::create($studentType);
+//        return redirect('/tutors');
     }
 
     /**

@@ -22,32 +22,32 @@ class StaffController extends Controller
     //Show the form for creating a new student.
     public function create()
     {
-        $this->authorize('StaffAdminAuthorize');
-        return view('staffs.create');
+//        $this->authorize('StaffAdminAuthorize');
+//        return view('staffs.create');
     }
 
     //Store a newly created student in storage.
     public function store(Request $request)
     {
-        $this->authorize('StaffAdminAuthorize');
-        $accosiateUserId = \App\User::all()->last()->id;
-        Request()->validate([
-            'name' => 'required',
-            'phone' => 'required',
-            'address' => 'required',
-            'DoB' => 'required|date',
-            'gender' => 'required',
-        ]);
-        $staffNew = new Staff();
-        $staffNew -> name = request('name');
-        $staffNew -> phone = request('phone');
-        $staffNew -> address = request('address');
-        $staffNew -> DoB = request('DoB');
-        $staffNew -> gender = request('gender');
-        $staffNew->user()->associate($accosiateUserId);
-        $staffNew->save();
-        // Student::create($studentType);
-        return redirect('/staffs');
+//        $this->authorize('StaffAdminAuthorize');
+//        $accosiateUserId = \App\User::all()->last()->id;
+//        Request()->validate([
+//            'name' => 'required',
+//            'phone' => 'required',
+//            'address' => 'required',
+//            'DoB' => 'required|date',
+//            'gender' => 'required',
+//        ]);
+//        $staffNew = new Staff();
+//        $staffNew -> name = request('name');
+//        $staffNew -> phone = request('phone');
+//        $staffNew -> address = request('address');
+//        $staffNew -> DoB = request('DoB');
+//        $staffNew -> gender = request('gender');
+//        $staffNew->user()->associate($accosiateUserId);
+//        $staffNew->save();
+//        // Student::create($studentType);
+//        return redirect('/staffs');
     }
 
 

@@ -60,7 +60,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Message::class);
     }
-    public function Classrooms()
+    public function Classroom()
     {
         return $this->hasMany(Classroom::class);
     }

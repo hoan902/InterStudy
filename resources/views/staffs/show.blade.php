@@ -9,22 +9,32 @@
 
                     <div class="card-body">
                         <img src="/ProfileImage/{{ $staffID->profile_image }}" style="width: 150px; height:150px; float: left; border-radius: 50%; margin-right: 25px;">
-                        <h1>{{ $staffID->user->email }} Profile</h1>
-                        <div class="card-columns">
-                            <strong>Name</strong>
-                            <p>{{ $staffID->name}}</p>
+                        <h2 style="float: top">{{ $staffID->user->email }} Profile</h2>
+                        <div class="card-group">
+                            <ul>
+                                <li>
+                                    <strong>Name</strong>
+                                    <p>{{ $staffID->name}}</p>
+                                </li>
+                                <li>
+                                    <strong>phone</strong>
+                                    <p>{{ $staffID->phone }}</p>
+                                </li>
+                                <li>
+                                    <strong>Address</strong>
+                                    <p>{{ $staffID->address }}</p>
+                                </li>
 
-                            <strong>phone</strong>
-                            <p>{{ $staffID->phone }}</p>
+                                <li>
+                                    <strong>Day of Birth</strong>
+                                    <p>{{ $staffID->DoB }}</p>
+                                </li>
 
-                            <strong>Address</strong>
-                            <p>{{ $staffID->address }}</p>
-
-                            <strong>Day of Birth</strong>
-                            <p>{{ $staffID->DoB }}</p>
-
-                            <strong>Gender</strong>
-                            <p>{{ $staffID->gender }}</p>
+                                <li>
+                                    <strong>Gender</strong>
+                                    <p>{{ $staffID->gender }}</p>
+                                </li>
+                            </ul>
                         </div>
                         <a class="btn btn-primary" style="float: inherit" href="/staffs">Back to staffs page</a>
                         <a class="btn btn-primary" style="float: right" href="/staffs/{{$staffID->id}}/edit">Edit staff info</a>

@@ -2,10 +2,27 @@ Hoan make change (24/4/2020) tu ghi nha:
 _ Allow only staff to register user (fix in Register middleware)
 _ fix auto-login when create new user
 _ can direct to different page depend on different user_type'
-
+__________________________________________________________________________________________________________
 MAKE CHANGE 10h50 PM
 _ THEM CUR, con` DELETE chua lam`, dinh lam` soft delete nhung se chuyen qua lam dang vanila
 	[cho so sanh status cua user account, neu = 0 thi` redirect qua trang bao khoa tai khoan]
 _ phan quyen user_type (Admin add dc staff/student/tutor | Staff add dc student/tutor)
 	Dung` middleware
 _ User Manager chua dung` dc, moi co index show user account.
+__________________________________________________________________________________________________________
+Make change 28/4/2020 (7h15 PM)
+_ Fix lại cho staff + admin add new user trên 1 form (ko cần nhảy view khác)
+_ Authorize dùng Gate để phân quyền cho các functions ở mỗi controller (cho Staff/Admin)
+_ Còn thiếu:
+	1. chức năng soft-Delete (enable/disable account)
+	2. chức năng show lớp (có làm 1 ít bên controller mà view chưa chỉnh)
+	3. chức năng CRUD của Post với Cmt (Cmt nếu ko kịp bỏ qua cũng được)
+	4. chức năng của Admin (hiện tại có chức năng index bên trong UserController để show account
+	   cho admin)
+** Nhắc nhở nhẹ ngoài lề: Còn document nữa, nhớ lo document của group + của riêng mình nha
+__________________________________________________________________________________________________________
+Interface changes 28/4/2020 (10:53 PM)
+_ Added:
+    + CSS, JavaScript, fonts, images (In public folder)
+    + layouts/navbar.blade.php (navigation bar on top of page)
+    + layouts/preloader.blade.php (display loading animation before the page loads)

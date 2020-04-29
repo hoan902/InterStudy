@@ -1,101 +1,143 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>App Landing Template </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
 
-        <title>Laravel</title>
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+<body>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+@extends('layouts.navbar')
+@extends('layouts.preloader')
 
-            .full-height {
-                height: 100vh;
-            }
+<main>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                        @if (Auth::user()->user_type == 'staff'||Auth::user()->user_type == 'admin')
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}">Add new user</a>
-                            @endif
-                        @endif
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                    @endauth
+    <!-- Slider Area Start-->
+    <div class="slider-area ">
+        <div class="slider-active">
+            <div class="single-slider slider-height slider-padding sky-blue d-flex align-items-center">
+                <div class="container">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-lg-6 col-md-9 ">
+                            <div class="hero__caption">
+                                <span data-animation="fadeInUp" data-delay=".4s">Welcome to the InterStudy portal</span>
+                                <h1 data-animation="fadeInUp" data-delay=".6s">InterStudy<br>Portal</h1>
+                                <p data-animation="fadeInUp" data-delay=".8s">To continue to the learning management system,
+                                please login.</p>
+                                <!-- Slider btn -->
+                                <div class="slider-btns">
+                                    <!-- Hero-btn -->
+                                    <a data-animation="fadeInLeft" data-delay="1.0s" href="/"
+                                       class="btn radius-btn">Login</a>
+                                    <!-- Video Btn -->
+{{--                                    <a data-animation="fadeInRight" data-delay="1.0s"--}}
+{{--                                       class="popup-video video-btn ani-btn"--}}
+{{--                                       href="https://www.youtube.com/watch?v=1aP-TXUpNoU"><i--}}
+{{--                                            class="fas fa-play"></i></a>--}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="hero__img d-none d-lg-block f-right" data-animation="fadeInRight"
+                                 data-delay="1s">
+                                <img src="img/greenwich.jpg" alt="" width="800" height="504">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    InterStudy
-                </div>
-
-                <div class="links">
-                    <!--Admin authorize-->
-                    <a href="/admin/user">User Manager</a>
-                    <a href="/staffs">Staff Manager</a>
-                    <!--Staff authorize-->
-                    <a href="/students">Student Manager</a>
-                    <a href="/tutors">Tutor Manager</a>
-                    <a href="/classroom">Classroom Manager</a>
-                    <a href="#">Post Manager</a>
+            </div>
+            <div class="single-slider slider-height slider-padding sky-blue d-flex align-items-center">
+                <div class="container">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-lg-6 col-md-9 ">
+                            <div class="hero__caption">
+                                <span data-animation="fadeInUp" data-delay=".4s">Welcome to the InterStudy portal</span>
+                                <h1 data-animation="fadeInUp" data-delay=".6s">InterStudy<br>Portal</h1>
+                                <p data-animation="fadeInUp" data-delay=".8s">To continue to the learning management system,
+                                    please login.</p>
+                                <!-- Slider btn -->
+                                <div class="slider-btns">
+                                    <!-- Hero-btn -->
+                                    <a data-animation="fadeInLeft" data-delay="1.0s" href="/"
+                                       class="btn radius-btn">Login</a>
+                                    <!-- Video Btn -->
+{{--                                    <a data-animation="fadeInRight" data-delay="1.0s"--}}
+{{--                                       class="popup-video video-btn ani-btn"--}}
+{{--                                       href="https://www.youtube.com/watch?v=1aP-TXUpNoU"><i--}}
+{{--                                            class="fas fa-play"></i></a>--}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="hero__img d-none d-lg-block f-right" data-animation="fadeInRight"
+                                 data-delay="1s">
+                                <img src="img/greenwich.jpg" alt="" width="800" height="504">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+    <!-- Slider Area End -->
+
+</main>
+
+<!-- JS here -->
+
+<!-- All JS Custom Plugins Link Here here -->
+<script src="./js/vendor/modernizr-3.5.0.min.js"></script>
+
+<!-- Jquery, Popper, Bootstrap -->
+<script src="./js/vendor/jquery-1.12.4.min.js"></script>
+<script src="./js/popper.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<!-- Jquery Mobile Menu -->
+<script src="./js/jquery.slicknav.min.js"></script>
+
+<!-- Jquery Slick , Owl-Carousel Plugins -->
+<script src="./js/owl.carousel.min.js"></script>
+<script src="./js/slick.min.js"></script>
+<!-- Date Picker -->
+<script src="./js/gijgo.min.js"></script>
+<!-- One Page, Animated-HeadLin -->
+<script src="./js/wow.min.js"></script>
+<script src="./js/animated.headline.js"></script>
+<script src="./js/jquery.magnific-popup.js"></script>
+
+<!-- Scrollup, nice-select, sticky -->
+<script src="./js/jquery.scrollUp.min.js"></script>
+<script src="./js/jquery.nice-select.min.js"></script>
+<script src="./js/jquery.sticky.js"></script>
+
+<!-- contact js -->
+<script src="./js/contact.js"></script>
+<script src="./js/jquery.form.js"></script>
+<script src="./js/jquery.validate.min.js"></script>
+<script src="./js/mail-script.js"></script>
+<script src="./js/jquery.ajaxchimp.min.js"></script>
+
+<!-- Jquery Plugins, main Jquery -->
+<script src="./js/plugins.js"></script>
+<script src="./js/main.js"></script>
+
+</body>
 </html>

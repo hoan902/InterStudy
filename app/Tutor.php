@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tutor extends Model
 {
+
     protected $guarded = [];
 
     public function user()
@@ -13,8 +14,8 @@ class Tutor extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function Classrooms()
+    public function Classroom()
     {
-        return $this->hasMany(Classroom::class);
+        return $this->belongsTo(Classroom::class);
     }
 }
