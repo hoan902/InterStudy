@@ -9,15 +9,15 @@ class Classroom extends Model
     protected $guarded = [];
 
 
-    public function Post()
+    public function Posts()
     {
         return $this->hasMany(Post::class);
     }
-    public function Student()
+    public function Students()
     {
         return $this->hasMany(Student::class);
     }
-    public function Tutor()
+    public function Tutors()
     {
         return $this->hasMany(Tutor::class);
     }

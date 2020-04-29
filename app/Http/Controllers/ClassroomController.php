@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Classroom;
-use App\Student;
-use App\Tutor;
-use App\User;
 use Illuminate\Http\Request;
 
 class ClassroomController extends Controller
@@ -17,45 +14,36 @@ class ClassroomController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Classroom $classroom)
     {
-        $this->authorize('StaffAdminAuthorize');
-        $Classroom = Classroom::latest()->paginate(10);
-
-        return view('classrooms.index',compact('Classroom'));
+        $posts = $classroom->Posts()->get();
+        return view('classroom.view',compact('classroom'))->with(compact('posts'));
     }
 
     /**
      * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Classroom $classroom)
     {
-        $this->authorize('StaffAdminAuthorize');
-        $tutorClassroom = Tutor::all();
-        $studentClassroom = Student::all();
-
-        return view('classrooms.create',compact('tutorClassroom','studentClassroom'));
+        $classroom->Posts()->create([
+            'title'=> request()->title,
+            'content' => request()->postarea,
+            'user_id' =>auth()->user()->id
+        ]);
+        return redirect('/classroom/'.$classroom->id);
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $this->authorize('StaffAdminAuthorize');
-        Request()->validate([
-            'name' => 'required',
-            'tutor_id' => 'required',
-            'student_id' => 'required',
-        ]);
-        $tutorNew = new Classroom();
-        $tutorNew -> name = request('name');
-        $tutorNew -> tutor_id = request('tutor_id');
-        $tutorNew -> student_id = request('student_id');
-        $tutorNew->save();
-        // Student::create($studentType);
-        return redirect('/classrooms');
+        //
     }
 
     /**
@@ -64,9 +52,9 @@ class ClassroomController extends Controller
      * @param  \App\Classroom  $classroom
      * @return \Illuminate\Http\Response
      */
-    public function show(Classroom $classID)
+    public function show(Classroom $classroom)
     {
-        return view('classrooms.view',compact($classID));
+        //
     }
 
     /**
@@ -100,6 +88,6 @@ class ClassroomController extends Controller
      */
     public function destroy(Classroom $classroom)
     {
-        //
+        
     }
 }
