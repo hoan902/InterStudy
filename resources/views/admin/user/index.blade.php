@@ -80,6 +80,51 @@
                         <td>No user to show</td>
                     @endforelse
                 </table>
+                            <th>action</th>
+                        </tr>
+                        @forelse($users as $user)
+                            <tr>
+                                <td>{{$users->id}}</td>
+                                <td>{{ $users->email }}</td>
+                                <td>{{ $users->user_type }}</td>
+                                @if($users->student)
+                                    <td>{{ $users->student->name }}</td>
+                                        <td @if($users->student->status == 1)
+                                                style="color: limegreen">
+                                            @else
+                                                style="color: red">
+                                            @endif
+                                            {{ $users->student->status ? 'Enable' : 'Disable' }}</td>
+                                @elseif($users->tutor)
+                                    <td>{{ $users->tutor->name }}</td>
+                                    <td @if($users->tutor->status == 1)
+                                        style="color: limegreen">
+                                        @else
+                                            style="color: red">
+                                        @endif
+                                        {{ $users->tutor->status ? 'Enable' : 'Disable' }}</td>
+                                @elseif($users->staff)
+                                    <td>{{ $users->staff->name }}</td>
+                                    <td @if($users->staff->status == 1)
+                                        style="color: limegreen">
+                                        @else
+                                            style="color: red">
+                                        @endif
+                                        {{ $users->staff->status ? 'Enable' : 'Disable' }}</td>
+                                @elseif($users->admin)
+                                    <td>{{ $users->admin->name }}</td>
+                                    <td @if($users->admin->status == 1)
+                                        style="color: limegreen">
+                                        @else
+                                            style="color: red">
+                                        @endif
+                                        {{ $users->admin->status ? 'Enable' : 'Disable' }}</td>
+                                @endif
+                            </tr>
+                        @empty
+                            <td>No user to show</td>
+                        @endforelse
+                    </table>
             </div>
         </div>
 
