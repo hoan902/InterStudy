@@ -69,7 +69,7 @@
                 </p>
                 </div>
                 <div class="card-footer">
-                    
+                <comment :currentuser="{{auth()->user()}}" :post="{{$post}}" :classroom="{{$classroom}}"></comment>
                 </div>
             </div>
             @endforeach

@@ -13,12 +13,17 @@
                             <th>id</th>
                             <th>email</th>
                             <th>User Type</th>
+<<<<<<< Updated upstream
                             <th>User Name</th>
                             <th>status</th>
+=======
+                            
+>>>>>>> Stashed changes
                             <th>action</th>
                         </tr>
-                        @forelse($User as $users)
+                        @forelse($users as $user)
                             <tr>
+<<<<<<< Updated upstream
                                 <td>{{$users->id}}</td>
                                 <td>{{ $users->email }}</td>
                                 <td>{{ $users->user_type }}</td>
@@ -54,17 +59,14 @@
                                             style="color: red">
                                         @endif
                                         {{ $users->admin->status ? 'Enable' : 'Disable' }}</td>
+=======
+                                @if($user->user_type !='admin')
+                                <td>{{$user->id}}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->user_type }}</td>
+                                <td><button class="btn btn-danger">Delete</button></td>
+>>>>>>> Stashed changes
                                 @endif
-                                <td>
-                                    <form action="{{ route('admin.user.destroy', $users->id) }}" method="POST" class="float-left">
-                                        @csrf
-                                        {{method_field('DELETE')}}
-                                        <button type="submit" class="btn btn-warning"
-                                                @if($users->user_type == 'admin')
-                                                hidden @endif>Disable account</button>
-                                    </form>
-
-                                </td>
                             </tr>
                         @empty
                             <td>No user to show</td>

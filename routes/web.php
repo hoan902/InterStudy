@@ -34,6 +34,10 @@ Route::post('/classroom/{classroom}/post','ClassroomController@create');
 Route::get('/post/{post}/delete','PostController@delete');
 Route::get('/classroom/{classroom}/post/{post}/edit','PostController@edit');
 Route::post('/classroom/{classroom}/post/{post}/update','PostController@update');
+Route::post('/post/{post}/comment/submit','CommentController@postComment');
+Route::get('/post/{post}/comment','CommentController@getComment');
+Route::post('/post/{post}/comment/{comment}/delete','CommentController@delComment');
+
 Route::get('/getmess','ChatroomController@fetch');
 
 //STUDENT ROUTE
