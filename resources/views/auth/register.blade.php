@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.navbar')
+@extends('layouts.preloader')
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row h-50 justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Add new user') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">

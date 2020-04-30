@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.navbar')
+@extends('layouts.preloader')
 
 @section('content')
     <div class="container">
@@ -61,4 +62,6 @@
             </div>
         </div>
     </div>
+
+
 @endsection

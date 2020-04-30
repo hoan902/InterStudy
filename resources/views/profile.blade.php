@@ -1,8 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.navbar')
+@extends('layouts.preloader')
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row h-50 justify-content-center">
             <div class="form-text">
                 @if(Auth::user()->user_type == 'tutor')
                     <img src="/ProfileImage/{{ Auth::user()->tutor->profile_image }}" style="width: 150px; height:150px; float: left; border-radius: 50%; margin-right: 25px;">
@@ -28,7 +29,7 @@
                             <strong>Name</strong>
                             <p>{{ Auth::user()->tutor->name }}</p>
 
-                            <strong>Job</strong>
+                            <strong>Role</strong>
                             <p>{{ Auth::user()->user_type }}</p>
 
                             <strong>phone</strong>
@@ -46,7 +47,7 @@
                             <strong>Name</strong>
                             <p>{{ Auth::user()->student->name }}</p>
 
-                            <strong>Job</strong>
+                            <strong>Role</strong>
                             <p>{{ Auth::user()->user_type }}</p>
 
                             <strong>phone</strong>
@@ -64,7 +65,7 @@
                             <strong>Name</strong>
                             <p>{{ Auth::user()->staff->name }}</p>
 
-                            <strong>Job</strong>
+                            <strong>Role</strong>
                             <p>{{ Auth::user()->user_type }}</p>
 
                             <strong>phone</strong>
@@ -82,7 +83,7 @@
                             <strong>Name</strong>
                             <p>{{ Auth::user()->admin->name }}</p>
 
-                            <strong>Job</strong>
+                            <strong>Role</strong>
                             <p>{{ Auth::user()->user_type }}</p>
 
                             <strong>phone</strong>

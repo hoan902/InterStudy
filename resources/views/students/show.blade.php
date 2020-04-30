@@ -1,8 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.navbar')
+@extends('layouts.preloader')
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row h-50 justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header"><h4>Student Detail</h4></div>

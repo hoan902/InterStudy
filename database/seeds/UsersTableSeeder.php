@@ -13,7 +13,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-       // User::truncate(); //This drop and create table
+        // User::truncate(); //This drop and create table
         //Add example admin for testing using 'php artisan db:seed'
         $admin = User::create([
             'email' => 'admin@example.com',

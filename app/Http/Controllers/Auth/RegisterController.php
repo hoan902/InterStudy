@@ -65,7 +65,7 @@ class RegisterController extends Controller
 //        else if (User::all()->last()->user_type == 'staff') {
 //            return '/staffs/create';
 //        }
-        return '/home';
+        return '/';
     }
 
 
