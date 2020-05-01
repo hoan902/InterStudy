@@ -8,7 +8,7 @@ class Post extends Model
 {
     protected $guarded = [];
 
-    public function Classrooms()
+    public function Classroom()
     {
         return $this->belongsTo(Classroom::class);
     }
@@ -18,7 +18,7 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function Users()
+    public function User()
     {
         return $this->belongsTo(User::class);
     }

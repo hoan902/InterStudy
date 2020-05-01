@@ -1,7 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.navbar')
+@extends('layouts.preloader')
 
 @section('content')
-    <div class="container">
+    <div class="container h-25">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -12,16 +13,29 @@
                             <tr>
                                 <th>id</th>
                                 <th>Class Name</th>
+                                <th>Action</th>
                             </tr>
-                            @forelse($Classroom as $classrooms)
-                                <td>
-                                    <strong>
-                                        {{ $classrooms->id }}
-                                    </strong>
-                                </td>
-                                <td>
-                                    <a href="/classrooms/{{$classrooms->id}}">{{ $classrooms->name }}</a>
-                                </td>
+                            @forelse($classroom as $classrooms)
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            {{ $classrooms->id }}
+                                        </strong>
+                                    </td>
+                                    <td>
+                                        <a href="/classroom/{{$classrooms->id}}"
+                                           class="btn-link">{{ $classrooms->name }}</a>
+                                    </td>
+                                    <td>
+                                        <form action="/classroom/{{ $classrooms->id }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                    class="btn btn-warning">Delete Class</button>
+                                        </form>
+
+                                    </td>
+                                </tr>
                             @empty
                                 <p>No classrooms to show</p>
                             @endforelse
