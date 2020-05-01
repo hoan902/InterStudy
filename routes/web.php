@@ -32,10 +32,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/disable','StatusController@view');
 //Please use route model binding in this route
 //CLASSROOM RELATED ROUTE
-Route::get('/classroom','ClassroomController@viewClass');
-Route::get('/classroom/create','ClassroomController@createClass');
-Route::post('/classroom','ClassroomController@storeClass');
-Route::delete('/classroom/{classroom}','ClassroomController@destroyClass');
+Route::get('/classroomManage','ClassroomController@viewClass');
+Route::get('/classroomManage/create','ClassroomController@createClass');
+Route::post('/classroomManage','ClassroomController@storeClass');
+//using route model binding here
+Route::get('/classroomManage/{classroom}','ClassroomController@showClass');
+Route::get('/classroomManage/{classroom}/edit','ClassroomController@editClass');
+Route::put('/classroomManage/{classroom}','ClassroomController@updateClass');
+Route::delete('/classroomManage/{classroom}','ClassroomController@destroyClass');
 
 //CLASSROOM POST ROUTE
 Route::get('/classroom/{classroom}','ClassroomController@index');

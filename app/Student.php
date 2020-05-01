@@ -13,8 +13,8 @@ class Student extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function Classrooms()
+    public function Classroom()
     {
-        return $this->belongsTo(Classroom::class);
+        return $this->HasOne(Classroom::class);
     }
 }

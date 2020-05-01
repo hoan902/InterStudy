@@ -1,5 +1,23 @@
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>App Landing Template </title>
     <meta name="description" content="">
@@ -45,17 +63,28 @@
                                         <li><a href="/classrooms">Classroom</a>
                                             <ul class="submenu">
                                                 @if(Auth::user()->user_type == 'admin'|| Auth::user()->user_type == 'staff')
-                                                    <li><a href="/classroom">Manage Class</a></li>
+                                                    <li><a href="/classroomManage">Manage Class</a></li>
                                                 @endif
                                                 @if(Auth::user()->user_type == 'tutor')
-                                                    <li><a href="/classroom/{{Auth::user()->classroomTutor->id}}">My Classroom</a></li>
-                                                @elseif(Auth::user()->user_type == 'student')
-                                                        <li><a href="/classroom/{{Auth::user()->classroomStudent->id}}">My Classroom</a></li>
+                                                    @if(Auth::user()->classroomTutor != null)
+                                                        <li><a href="/classroom/{{Auth::user()->classroomTutor->id}}">My
+                                                                Classroom</a></li>
+                                                    @else
+                                                        <li>Not available</li>
                                                     @endif
+                                                @elseif(Auth::user()->user_type == 'student')
+                                                        @if(Auth::user()->classroomStudent != null)
+                                                    <li><a href="/classroom/{{Auth::user()->classroomStudent->id}}">My
+                                                            Classroom</a></li>
+                                                        @else
+                                                            <li>Not available</li>
+                                                        @endif
+                                                @endif
                                             </ul>
                                         </li>
                                         @if(Auth::user()->user_type == 'admin'|| Auth::user()->user_type == 'staff')
-                                            <li class="{{ (request()->is('register', 'admin/user')) ? 'active' : '' }}"><a>Users</a>
+                                            <li class="{{ (request()->is('register', 'admin/user')) ? 'active' : '' }}">
+                                                <a>Users</a>
                                                 <ul class="submenu">
                                                     <li><a href="/register">Add new user</a></li>
                                                     @if(Auth::user()->user_type == 'admin')
@@ -66,15 +95,18 @@
                                         @endif
                                         @if(Auth::user()->user_type == 'admin'|| Auth::user()->user_type == 'staff')
 
-                                            <li class="{{ (request()->is('students*')) ? 'active' : '' }}"><a href="/students">Manage students</a></li>
-                                            <li class="{{ (request()->is('tutors*')) ? 'active' : '' }}"><a href="/tutors">Manage tutors</a></li>
+                                            <li class="{{ (request()->is('students*')) ? 'active' : '' }}"><a
+                                                    href="/students">Manage students</a></li>
+                                            <li class="{{ (request()->is('tutors*')) ? 'active' : '' }}"><a
+                                                    href="/tutors">Manage tutors</a></li>
                                         @endif
                                     @endauth
 
 
                                     @auth
                                         @if(Auth::user()->user_type == 'admin')
-                                            <li class="{{ (request()->is('profile*')) ? 'active' : '' }}"><a href="/profile">{{ Auth::user()->admin->name }}</a>
+                                            <li class="{{ (request()->is('profile*')) ? 'active' : '' }}"><a
+                                                    href="#">{{ Auth::user()->admin->name }}</a>
                                                 <ul class="submenu">
                                                     <li><a href="/home">Dashboard (not implemented)</a></li>
                                                     <li><a href="/profile">Profile</a></li>
@@ -89,7 +121,8 @@
                                                 </ul>
                                             </li>
                                         @elseif(Auth::user()->user_type == 'staff')
-                                            <li class="{{ (request()->is('profile*')) ? 'active' : '' }}"><a href="/profile">{{ Auth::user()->staff->name }}</a>
+                                            <li class="{{ (request()->is('profile*')) ? 'active' : '' }}"><a
+                                                    href="/profile">{{ Auth::user()->staff->name }}</a>
                                                 <ul class="submenu">
                                                     <li><a href="/home">Dashboard (not implemented)</a></li>
                                                     <li><a href="/profile">Profile</a></li>
@@ -104,7 +137,8 @@
                                                 </ul>
                                             </li>
                                         @elseif(Auth::user()->user_type == 'student')
-                                            <li class="{{ (request()->is('profile*')) ? 'active' : '' }}"><a href="/profile">{{ Auth::user()->student->name }}</a>
+                                            <li class="{{ (request()->is('profile*')) ? 'active' : '' }}"><a
+                                                    href="#">{{ Auth::user()->student->name }}</a>
                                                 <ul class="submenu">
                                                     <li><a href="/home">Dashboard (not implemented)</a></li>
                                                     <li><a href="/profile">Profile</a></li>
@@ -119,7 +153,8 @@
                                                 </ul>
                                             </li>
                                         @elseif(Auth::user()->user_type == 'tutor')
-                                            <li class="{{ (request()->is('profile*')) ? 'active' : '' }}"><a href="/profile">{{ Auth::user()->tutor->name }}</a>
+                                            <li class="{{ (request()->is('profile*')) ? 'active' : '' }}"><a
+                                                    href="/profile">{{ Auth::user()->tutor->name }}</a>
                                                 <ul class="submenu">
                                                     <li><a href="/home">Dashboard (not implemented)</a></li>
                                                     <li><a href="/profile">Profile</a></li>
@@ -135,7 +170,8 @@
                                             </li>
                                         @endif
                                     @else
-                                        <li class="{{ request()->routeIs('login*') ? 'active' : '' }}"><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                                        <li class="{{ request()->routeIs('login*') ? 'active' : '' }}"><a
+                                                href="{{ route('login') }}">{{ __('Login') }}</a></li>
                                     @endauth
                                 </ul>
                             </nav>

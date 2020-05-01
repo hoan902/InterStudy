@@ -30,7 +30,21 @@ class AuthServiceProvider extends ServiceProvider
            return $user->user_type === 'staff' or $user->user_type === 'admin';
         });
         Gate::define('AdminAuthorize',function (User $user){
-            return $user->user_type == 'admin';
+            return $user->user_type === 'admin';
+        });
+        Gate::define('TutorStudentAuthorize',function (User $user){
+            return $user->user_type === 'tutor' or $user->user_type === 'student';
+        });
+
+        Gate::define('TutorClassroomAuthorize',function (User $user){
+            return $user->classroomTutor->tutor_id === $user->tutor->id;
+        });
+        Gate::define('StudentTutorClassroomAuthorize',function (User $user){
+            if($user->user_type ==='tutor'){
+                return $user->classroomTutor->tutor_id === $user->tutor->id;
+            }else if($user->user_type == 'student'){
+                return $user->classroomStudent->student_id === $user->student->id;
+            }
         });
     }
 }
