@@ -39,7 +39,7 @@
                         <div class="main-menu f-right d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li class="active"><a href="/"> Home</a></li>
+                                    <li class="{{ (request()->is('/')) ? 'active' : '' }}"><a href="/"> Home</a></li>
 
                                     @auth
                                         <li><a href="#">Classroom</a>
@@ -55,7 +55,7 @@
                                             </ul>
                                         </li>
                                         @if(Auth::user()->user_type == 'admin'|| Auth::user()->user_type == 'staff')
-                                            <li><a>User</a>
+                                            <li class="{{ (request()->is('register', 'admin/user')) ? 'active' : '' }}"><a>Users</a>
                                                 <ul class="submenu">
                                                     <li><a href="/register">Add new user</a></li>
                                                     @if(Auth::user()->user_type == 'admin')
@@ -66,16 +66,17 @@
                                         @endif
                                         @if(Auth::user()->user_type == 'admin'|| Auth::user()->user_type == 'staff')
 
-                                            <li><a href="/students">Manage students</a></li>
-                                            <li><a href="/tutors">Manage tutors</a></li>
+                                            <li class="{{ (request()->is('students*')) ? 'active' : '' }}"><a href="/students">Manage students</a></li>
+                                            <li class="{{ (request()->is('tutors*')) ? 'active' : '' }}"><a href="/tutors">Manage tutors</a></li>
                                         @endif
                                     @endauth
 
 
                                     @auth
                                         @if(Auth::user()->user_type == 'admin')
-                                            <li><a href="#">{{ Auth::user()->admin->name }}</a>
+                                            <li class="{{ (request()->is('profile*')) ? 'active' : '' }}"><a href="/profile">{{ Auth::user()->admin->name }}</a>
                                                 <ul class="submenu">
+                                                    <li><a href="/home">Dashboard (not implemented)</a></li>
                                                     <li><a href="/profile">Profile</a></li>
                                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout
@@ -88,8 +89,9 @@
                                                 </ul>
                                             </li>
                                         @elseif(Auth::user()->user_type == 'staff')
-                                            <li><a href="#">{{ Auth::user()->staff->name }}</a>
+                                            <li class="{{ (request()->is('profile*')) ? 'active' : '' }}"><a href="/profile">{{ Auth::user()->staff->name }}</a>
                                                 <ul class="submenu">
+                                                    <li><a href="/home">Dashboard (not implemented)</a></li>
                                                     <li><a href="/profile">Profile</a></li>
                                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout
@@ -102,8 +104,9 @@
                                                 </ul>
                                             </li>
                                         @elseif(Auth::user()->user_type == 'student')
-                                            <li><a href="#">{{ Auth::user()->student->name }}</a>
+                                            <li class="{{ (request()->is('profile*')) ? 'active' : '' }}"><a href="/profile">{{ Auth::user()->student->name }}</a>
                                                 <ul class="submenu">
+                                                    <li><a href="/home">Dashboard (not implemented)</a></li>
                                                     <li><a href="/profile">Profile</a></li>
                                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout
@@ -116,8 +119,9 @@
                                                 </ul>
                                             </li>
                                         @elseif(Auth::user()->user_type == 'tutor')
-                                            <li><a href="#">{{ Auth::user()->tutor->name }}</a>
+                                            <li class="{{ (request()->is('profile*')) ? 'active' : '' }}"><a href="/profile">{{ Auth::user()->tutor->name }}</a>
                                                 <ul class="submenu">
+                                                    <li><a href="/home">Dashboard (not implemented)</a></li>
                                                     <li><a href="/profile">Profile</a></li>
                                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout
@@ -131,7 +135,7 @@
                                             </li>
                                         @endif
                                     @else
-                                        <li><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                                        <li class="{{ request()->routeIs('login*') ? 'active' : '' }}"><a href="{{ route('login') }}">{{ __('Login') }}</a></li>
                                     @endauth
                                 </ul>
                             </nav>

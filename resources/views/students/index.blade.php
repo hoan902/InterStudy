@@ -2,10 +2,10 @@
 @extends('layouts.preloader')
 
 @section('content')
-    <div class="container">
-        <div class="row h-50">
-            <div class="col-sm-12 my-auto">
-                <div class="header-area"><h3>Students list</h3></div>
+    <div class="h-50">
+        <div class="card">
+            <div class="card-header"><h3>Students list</h3></div>
+            <div class="card-body col-auto table-responsive text-nowrap">
                 <ul>
                     @forelse($Student as $students)
                         <li>
