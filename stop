@@ -1,0 +1,126 @@
+warning: LF will be replaced by CRLF in app/Http/Controllers/Auth/RegisterController.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in app/Http/Controllers/ClassroomController.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/views/classrooms/view.blade.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/views/home.blade.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/views/layouts/content.blade.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in resources/views/welcome.blade.php.
+The file will have its original line endings in your working directory
+[1mdiff --git a/app/Http/Controllers/Auth/RegisterController.php b/app/Http/Controllers/Auth/RegisterController.php[m
+[1mindex 9365308..d59d166 100644[m
+[1m--- a/app/Http/Controllers/Auth/RegisterController.php[m
+[1m+++ b/app/Http/Controllers/Auth/RegisterController.php[m
+[36m@@ -115,16 +115,16 @@[m [mclass RegisterController extends Controller[m
+             'password' => Hash::make($data['password']),[m
+             'user_type'=> $data['user_type'],[m
+         ]);[m
+[31m-        if(User::all()->last()->user_type == 'tutor'){[m
+[32m+[m[32m        if(User::all()->last()->user_type === 'tutor'){[m
+             $accosiateUserId = User::all()->last()->id;[m
+             $userProfile = new Tutor();[m
+[31m-        }else if(User::all()->last()->user_type == 'student'){[m
+[32m+[m[32m        }else if(User::all()->last()->user_type === 'student'){[m
+             $accosiateUserId = User::all()->last()->id;[m
+             $userProfile = new Student();[m
+[31m-        }else if(User::all()->last()->user_type == 'staff'){[m
+[32m+[m[32m        }else if(User::all()->last()->user_type === 'staff'){[m
+             $accosiateUserId = User::all()->last()->id;[m
+             $userProfile = new Staff();[m
+[31m-        }else if(User::all()->last()->user_type == 'admin'){[m
+[32m+[m[32m        }else if(User::all()->last()->user_type === 'admin'){[m
+             $accosiateUserId = User::all()->last()->id;[m
+             $userProfile = new Admin();[m
+         }[m
+[1mdiff --git a/app/Http/Controllers/ClassroomController.php b/app/Http/Controllers/ClassroomController.php[m
+[1mindex ec168c2..cbceaf4 100644[m
+[1m--- a/app/Http/Controllers/ClassroomController.php[m
+[1m+++ b/app/Http/Controllers/ClassroomController.php[m
+[36m@@ -66,7 +66,7 @@[m [mclass ClassroomController extends Controller[m
+      */[m
+     public function show(Classroom $classID)[m
+     {[m
+[31m-        return view('classrooms.view',compact($classID));[m
+[32m+[m[32m        return view('classrooms.view',compact('classID'));[m
+     }[m
+ [m
+     /**[m
+[1mdiff --git a/resources/views/classrooms/view.blade.php b/resources/views/classrooms/view.blade.php[m
+[1mindex 9694197..51ce5a6 100644[m
+[1m--- a/resources/views/classrooms/view.blade.php[m
+[1m+++ b/resources/views/classrooms/view.blade.php[m
+[36m@@ -1,8 +1,22 @@[m
+ @extends('layouts.app')[m
+ [m
+ @section('content')[m
+[31m-<div id="app">[m
+[31m-<chat :currentuser ="{{ Auth()->user() }}"></chat>[m
+[31m-</div>[m
+[32m+[m[32m    <div class="container">[m
+[32m+[m[32m        <div class="row justify-content-center">[m
+[32m+[m[32m            <div class="col-md-8">[m
+[32m+[m[32m                <div class="card">[m
+[32m+[m[32m                    <div class="card-header"><h3>{{ $classID->name }} Class room</h3></div>[m
+[32m+[m[32m                    <div class="card-body">[m
+[32m+[m[32m                            <div id="app" style="float: right;height: 200px;width: 1000px">[m
+[32m+[m[32m                                <chat :currentuser ="{{ Auth()->user() }}"></chat>[m
+[32m+[m[32m                            </div>[m
+[32m+[m[32m                    </div>[m
+[32m+[m[32m                </div>[m
+[32m+[m[32m            </div>[m
+[32m+[m[32m        </div>[m
+[32m+[m[32m    </div>[m
+[32m+[m
+[32m+[m
+[32m+[m
+ [m
+ @endsection[m
+[1mdiff --git a/resources/views/home.blade.php b/resources/views/home.blade.php[m
+[1mindex 05dfca9..84d7b6e 100644[m
+[1m--- a/resources/views/home.blade.php[m
+[1m+++ b/resources/views/home.blade.php[m
+[36m@@ -8,11 +8,7 @@[m
+                 <div class="card-header">Dashboard</div>[m
+ [m
+                 <div class="card-body">[m
+[31m-                    @if (session('status'))[m
+[31m-                        <div class="alert alert-success" role="alert">[m
+[31m-                            {{ session('status') }}[m
+[31m-                        </div>[m
+[31m-                    @endif[m
+[32m+[m[32m                    {{ Auth::user()->email }}[m
+ [m
+                     You are logged in![m
+                 </div>[m
+[1mdiff --git a/resources/views/layouts/content.blade.php b/resources/views/layouts/content.blade.php[m
+[1mindex 20b402a..0fa2d9c 100644[m
+[1m--- a/resources/views/layouts/content.blade.php[m
+[1m+++ b/resources/views/layouts/content.blade.php[m
+[36m@@ -6,11 +6,6 @@[m
+                     <div class="card-header">Content</div>[m
+ [m
+                     <div class="card-body">[m
+[31m-                        @if (session('status'))[m
+[31m-                            <div class="alert alert-success" role="alert">[m
+[31m-                                {{ session('status') }}[m
+[31m-                            </div>[m
+[31m-                        @endif[m
+ [m
+                         @yield('content_board')[m
+                     </div>[m
+[1mdiff --git a/resources/views/welcome.blade.php b/resources/views/welcome.blade.php[m
+[1mindex bf42ff8..0561a93 100644[m
+[1m--- a/resources/views/welcome.blade.php[m
+[1m+++ b/resources/views/welcome.blade.php[m
+[36m@@ -92,7 +92,7 @@[m
+                     <!--Staff authorize-->[m
+                     <a href="/students">Student Manager</a>[m
+                     <a href="/tutors">Tutor Manager</a>[m
+[31m-                    <a href="/classroom">Classroom Manager</a>[m
+[32m+[m[32m                    <a href="/classrooms">Classroom Manager</a>[m
+                     <a href="#">Post Manager</a>[m
+                 </div>[m
+             </div>[m

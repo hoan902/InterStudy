@@ -14,6 +14,10 @@ class ClassroomController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function view(){
+        $classroom = Classroom::latest()->paginate(10);
+        return view('classrooms.index',compact('classroom'));
+    }
     public function index(Classroom $classroom)
     {
         $posts = $classroom->Posts()->get();
@@ -34,7 +38,7 @@ class ClassroomController extends Controller
         ]);
         return redirect('/classroom/'.$classroom->id);
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -88,6 +92,6 @@ class ClassroomController extends Controller
      */
     public function destroy(Classroom $classroom)
     {
-        
+
     }
 }

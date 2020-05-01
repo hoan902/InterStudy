@@ -1,7 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.navbar')
+@extends('layouts.preloader')
 
 @section('content')
-    <div class="container">
+    <div class="container h-25">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -13,14 +14,14 @@
                                 <th>id</th>
                                 <th>Class Name</th>
                             </tr>
-                            @forelse($Classroom as $classrooms)
+                            @forelse($classroom as $classrooms)
                                 <td>
                                     <strong>
                                         {{ $classrooms->id }}
                                     </strong>
                                 </td>
                                 <td>
-                                    <a href="/classrooms/{{$classrooms->id}}">{{ $classrooms->name }}</a>
+                                    <a href="/classroom/{{$classrooms->id}}" class="btn-link">{{ $classrooms->name }}</a>
                                 </td>
                             @empty
                                 <p>No classrooms to show</p>

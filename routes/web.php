@@ -28,7 +28,9 @@ Route::post('/send','ChatroomController@send');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/disable','StatusController@view');
 //Please use route model binding in this route
+
 //CLASSROOM RELATED ROUTE
+Route::get('/classroom','ClassroomController@view');
 Route::get('/classroom/{classroom}','ClassroomController@index');
 Route::post('/classroom/{classroom}/post','ClassroomController@create');
 Route::get('/post/{post}/delete','PostController@delete');
