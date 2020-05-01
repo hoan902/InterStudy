@@ -8,7 +8,7 @@ class Comment extends Model
 {
     protected $guarded = [];
 
-    public function Posts()
+    public function Post()
     {
         return $this->belongsTo(Post::class);
     }

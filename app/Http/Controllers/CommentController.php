@@ -21,5 +21,5 @@ class CommentController extends Controller
     public function delComment(Post $post,Comment $comment){
         $comment->delete();
     }
-    
+
 }
