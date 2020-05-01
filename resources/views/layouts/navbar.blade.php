@@ -42,7 +42,7 @@
                                     <li class="{{ (request()->is('/')) ? 'active' : '' }}"><a href="/"> Home</a></li>
 
                                     @auth
-                                        <li><a href="#">Classroom</a>
+                                        <li><a href="/classrooms">Classroom</a>
                                             <ul class="submenu">
                                                 @if(Auth::user()->user_type == 'admin'|| Auth::user()->user_type == 'staff')
                                                     <li><a href="/classroom">Manage Class</a></li>
