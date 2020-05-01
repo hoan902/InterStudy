@@ -11,14 +11,14 @@
                     <div class="card-body">
                         <label for="post_content">Post something here</label>
                         <input class="form-control mb-1" type="text" form="postform" name="title" placeholder="What is the title?">
-                        <textarea class="form-control mb-2" 
-                                  id="post_content" 
-                                  name="postarea" 
-                                  rows="3" 
+                        <textarea class="form-control mb-2"
+                                  id="post_content"
+                                  name="postarea"
+                                  rows="3"
                                   placeholder="What do you want to say?"
                                   form="postform"></textarea>
                         <form action="/classroom/{{$classroom->id}}/post" method="POST" enctype="multipart/form-data" id="postform">
-                            @csrf    
+                            @csrf
                                 <button type="submit" class="btn btn-primary mt-2">Post</button>
                         </form>
                     </div>
@@ -52,7 +52,7 @@
                                 <a class="dropdown-item" href="/classroom/{{$classroom->id}}/post/{{$post->id}}/delete">Delete Post</a>
                                     <a class="dropdown-item" href="/classroom/{{$classroom->id}}/post/{{$post->id}}/edit">Edit Post</a>
                                     @endif
-                                    
+
                                     <a class="dropdown-item" href="#">Something 3</a>
                                 </div>
                             </div>
@@ -63,18 +63,18 @@
                 <div class="card-body">
                 <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>{{$post->updated_at}}</div>
                 <h2>{{$post->title}}</h2>
-                
+
                 <p class="card-text">
                         {{$post->content}}
                 </p>
                 </div>
                 <div class="card-footer">
-                    
+
                 </div>
             </div>
             @endforeach
         </div>
-           
+
         </div>
     </div>
 

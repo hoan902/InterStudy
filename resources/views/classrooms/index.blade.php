@@ -3,12 +3,12 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header"><h3>List of Classrooms</h3></div>
 
-                    <div class="card-body">
-                        <table style="width:100%" class="table-sm">
+                    <div class="card-body col-auto table-responsive text-nowrap">
+                        <table style="width:100%" class="table table-striped">
                             <tr>
                                 <th>id</th>
                                 <th>Class Name</th>
