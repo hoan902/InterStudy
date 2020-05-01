@@ -5,15 +5,18 @@
     <div class="container h-25">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card position-fixed">
                     <div class="card-header"><h3>List of Classrooms</h3></div>
-
-                    <div class="card-body">
+                    <a class="btn btn-success" href="classroomManage/create" style="color: white"> Add New Classroom</a>
+                    <div class="card-body table-bordered">
                         <table style="width:100%" class="table-sm">
                             <tr>
                                 <th>id</th>
                                 <th>Class Name</th>
-                                <th>Action</th>
+                                <th>Class Tutor</th>
+                                <th>Class Student</th>
+                                <th>Delete</th>
+                                <th>Update</th>
                             </tr>
                             @forelse($classroom as $classrooms)
                                 <tr>
@@ -23,16 +26,29 @@
                                         </strong>
                                     </td>
                                     <td>
-                                        <a href="/classroom/{{$classrooms->id}}"
+                                        <a href="/classroomManage/{{$classrooms->id}}"
                                            class="btn-link">{{ $classrooms->name }}</a>
                                     </td>
                                     <td>
-                                        <form action="/classroom/{{ $classrooms->id }}" method="post">
+                                        <strong>
+                                            {{ $classrooms->tutor->name }}
+                                        </strong>
+                                    </td>
+                                    <td>
+                                        <strong>
+                                            {{ $classrooms->student->name }}
+                                        </strong>
+                                    </td>
+                                    <td>
+                                        <form action="/classroomManage/{{ $classrooms->id }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
                                                     class="btn btn-warning">Delete Class</button>
                                         </form>
+                                    </td>
+                                    <td>
+                                        <form><a href="/classroomManage/{{ $classrooms->id }}/edit" class="btn btn-warning">Edit Class</a></form>
 
                                     </td>
                                 </tr>

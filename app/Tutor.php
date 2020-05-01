@@ -16,6 +16,6 @@ class Tutor extends Model
 
     public function Classroom()
     {
-        return $this->belongsTo(Classroom::class);
+        return $this->hasOne(Classroom::class);
     }
 }

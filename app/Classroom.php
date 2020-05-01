@@ -15,11 +15,11 @@ class Classroom extends Model
     }
     public function Student()
     {
-        return $this->hasOne(Student::class);
+        return $this->BelongsTo(Student::class);
     }
     public function Tutor()
     {
-        return $this->hasOne(Tutor::class);
+        return $this->BelongsTo(Tutor::class);
     }
     public function Chatroom()
     {

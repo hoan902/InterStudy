@@ -21,6 +21,12 @@ class ClassroomController extends Controller
         $classroom = Classroom::latest()->paginate(10);
         return view('classrooms.index',compact('classroom'));
     }
+
+    /**
+     * Create new class (staff + admin function)
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Auth\Access\AuthorizationException*
+     */
     public function createClass(){
         $this->authorize('StaffAdminAuthorize');
         $tutorClassroom = Tutor::all();
@@ -36,28 +42,64 @@ class ClassroomController extends Controller
             'student_id' => 'required',
         ]);
         Classroom::create($NewClassroom);
-
-        return redirect('/classroom');
+        return redirect('/classroomManage');
     }
+    /**
+     * EDIT AND UPDATE CLASS (for staff and admin function)
+     */
+    public function showClass(Classroom $classroom){
+        $this->authorize('StaffAdminAuthorize');
+        return view('classrooms.show',compact('classroom'));
+    }
+    /**
+     * EDIT AND UPDATE CLASS (for staff and admin function)
+     */
+    public function editClass(Classroom $classroom){
+        $this->authorize('StaffAdminAuthorize');
+        return view('classrooms.edit',compact('classroom'));
+    }
+    public function updateClass(Classroom $classroom){
+        $this->authorize('StaffAdminAuthorize');
+        $classroom ->update(request()->validate([
+            'name' => 'required',
+            'tutor_id' => 'required',
+            'student_id' => 'required',
+        ]));
+        return redirect('/classroomManage');
+    }
+    /**
+     * Delete Class (staff + admin function)
+     * @param Classroom $classroom
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
     public function destroyClass(Classroom $classroom){
         $this->authorize('StaffAdminAuthorize');
         $classroom->delete();
-        return redirect('/classroom');
+        return redirect('/classroomManage');
     }
+
+
+    /**
+     * Posts functions goes here
+     */
+
 
     public function index(Classroom $classroom)
     {
+            $this->authorize('TutorStudentAuthorize');
+            $this->authorize('StudentTutorClassroomAuthorize');
         $posts = $classroom->Posts()->get();
         return view('classroom.view',compact('classroom'))->with(compact('posts'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new post.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create(Classroom $classroom)
     {
+        $this->authorize('TutorClassroomAuthorize');
         $classroom->Posts()->create([
             'title'=> request()->title,
             'content' => request()->postarea,

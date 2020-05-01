@@ -45,7 +45,7 @@
                                         <li><a href="#">Classroom</a>
                                             <ul class="submenu">
                                                 @if(Auth::user()->user_type == 'admin'|| Auth::user()->user_type == 'staff')
-                                                    <li><a href="/classroom">Manage Class</a></li>
+                                                    <li><a href="/classroomManage">Manage Class</a></li>
                                                 @endif
                                                 @if(Auth::user()->user_type == 'tutor')
                                                     <li><a href="/classroom/{{Auth::user()->classroomTutor->id}}">My Classroom</a></li>
