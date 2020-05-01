@@ -1,11 +1,11 @@
 <style scoped>
     .comment-block {
-        padding: 1rem;
         background-color: #fff;
         display: block;
         width: 100%;
         border-radius: 0.1875rem;
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+        padding: 1rem 1rem 50px;
     }
 
     .bottom-comment {
@@ -46,10 +46,10 @@
         <div class="container">
             <div v-for="(comment,index) in comments" :key="index">
                 <div class="comment-block mb-2">
-                    <h5>{{comment.user.name}}</h5>
+                    <h5>{{comment.user.email}}</h5>
                     <p class="comment-text">{{comment.content}}</p>
                     <div class="bottom-comment">
-                        <div class="comment-date">Time</div>
+                        <div class="comment-date">{{ comment.created_at }}</div>
                         <ul class="comment-actions">
                             <li @click="deleteComment(comment.id,index)" class="complain">Delete</li>
 

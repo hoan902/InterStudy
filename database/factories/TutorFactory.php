@@ -12,5 +12,8 @@ $factory->define(Tutor::class, function (Faker $faker) {
         'address' => $faker->address,
         'user_id' => factory(\App\User::class),
         'status' => $faker->boolean,
+        'profile_image' => $faker->image(),
+        'DoB' => $faker->date(),
+        'gender' => $faker->sentence,
     ];
 });

@@ -95,7 +95,7 @@
                                 </p>
                             </div>
                             <div class="card-footer">
-                                <div class="form-control-lg"><comment class="comment-count" :currentuser="{{auth()->user()}}" :post="{{$post}}" :classroom="{{$classroom}}"></comment></div>
+                                <div class=""><comment class="comment-count" :currentuser="{{auth()->user()}}" :post="{{$post}}" :classroom="{{$classroom}}"></comment></div>
                             </div>
                         </div>
                     @endforeach

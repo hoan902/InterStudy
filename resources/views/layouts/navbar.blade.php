@@ -60,25 +60,26 @@
                                     <li class="{{ (request()->is('/')) ? 'active' : '' }}"><a href="/"> Home</a></li>
 
                                     @auth
-                                        <li><a href="/classrooms">Classroom</a>
+                                        <li class="{{ (request()->is('classroom*')) ? 'active' : '' }}"><a
+                                                href="/myClassrooms">Classroom</a>
                                             <ul class="submenu">
                                                 @if(Auth::user()->user_type == 'admin'|| Auth::user()->user_type == 'staff')
                                                     <li><a href="/classroomManage">Manage Class</a></li>
                                                 @endif
                                                 @if(Auth::user()->user_type == 'tutor')
                                                     @if(Auth::user()->classroomTutor != null)
-                                                        <li><a href="/classroom/{{Auth::user()->classroomTutor->id}}">My
-                                                                Classroom</a></li>
+                                                        <li><a href="/myClassrooms">My
+                                                                Classrooms</a></li>
                                                     @else
                                                         <li>Not available</li>
                                                     @endif
                                                 @elseif(Auth::user()->user_type == 'student')
-                                                        @if(Auth::user()->classroomStudent != null)
-                                                    <li><a href="/classroom/{{Auth::user()->classroomStudent->id}}">My
-                                                            Classroom</a></li>
-                                                        @else
-                                                            <li>Not available</li>
-                                                        @endif
+                                                    @if(Auth::user()->classroomStudent != null)
+                                                        <li><a href="/myClassrooms">My
+                                                                Classroom</a></li>
+                                                    @else
+                                                        <li>Not available</li>
+                                                    @endif
                                                 @endif
                                             </ul>
                                         </li>

@@ -73,7 +73,6 @@
                                             hidden @endif>Disable account
                                     </button>
                                 </form>
-
                             </td>
                         </tr>
                     @empty

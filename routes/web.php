@@ -35,6 +35,9 @@ Route::get('/disable','StatusController@view');
 Route::get('/classroomManage','ClassroomController@viewClass');
 Route::get('/classroomManage/create','ClassroomController@createClass');
 Route::post('/classroomManage','ClassroomController@storeClass');
+
+Route::get('/myClassrooms', 'ClassroomController@myClassroomIndex');
+
 //using route model binding here
 Route::get('/classroomManage/{classroom}','ClassroomController@showClass');
 Route::get('/classroomManage/{classroom}/edit','ClassroomController@editClass');

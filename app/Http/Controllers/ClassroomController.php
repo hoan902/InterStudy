@@ -18,7 +18,7 @@ class ClassroomController extends Controller
      */
     public function viewClass(){
         $this->authorize('StaffAdminAuthorize');
-        $classroom = Classroom::latest()->paginate(10);
+        $classroom = Classroom::latest()->paginate(15);
         return view('classrooms.index',compact('classroom'));
     }
 
@@ -162,5 +162,12 @@ class ClassroomController extends Controller
     public function destroy(Classroom $classroom)
     {
 
+    }
+
+    public function myClassroomIndex()
+    {
+        $this->authorize('TutorStudentAuthorize');
+        $classroom = Classroom::latest()->paginate(15);
+        return view('classrooms.myClassrooms',compact('classroom'));
     }
 }

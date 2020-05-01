@@ -4,11 +4,11 @@
 @section('content')
     <div class="container h-25">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card position-fixed">
+            <div class="col-md-12">
+                <div class="card">
                     <div class="card-header"><h3>List of Classrooms</h3></div>
                     <a class="btn btn-success" href="classroomManage/create" style="color: white"> Add New Classroom</a>
-                    <div class="card-body table-bordered">
+                    <div class="card-body table-bordered table-responsive text-nowrap">
                         <table style="width:100%" class="table-sm">
                             <tr>
                                 <th>id</th>
@@ -56,6 +56,11 @@
                                 <p>No classrooms to show</p>
                             @endforelse
                         </table>
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center pt-4">
+                                {{ $classroom->links() }}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

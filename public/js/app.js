@@ -2239,6 +2239,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['post', 'classroom', 'currentuser'],
   data: function data() {
@@ -8799,7 +8801,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nbody[data-v-80d584ac]{\n    height:400px;\n    bottom: 0;\n}\n.col-md-2[data-v-80d584ac], .col-md-10[data-v-80d584ac]{\n    padding:0;\n}\n.panel[data-v-80d584ac]{\n    margin-bottom: 0px;\n}\n.chat-window[data-v-80d584ac]{\n    bottom:0;\n\n    width: 1000px;\n    margin-left:10px;\n}\n.chat-window > div > .panel[data-v-80d584ac]{\n    border-radius: 5px 5px 0 0;\n}\n.icon_minim[data-v-80d584ac]{\n    padding:2px 10px;\n}\n.msg_container_base[data-v-80d584ac]{\n  background: #e5e5e5;\n  margin: 0;\n  padding: 0 10px 10px;\n  max-height:300px;\n  overflow-x:hidden;\n}\n.top-bar[data-v-80d584ac] {\n  background: #666;\n  color: white;\n  padding: 10px;\n  position: relative;\n  overflow: hidden;\n}\n.msg_receive[data-v-80d584ac]{\n    padding-left:0;\n    margin-left:0;\n}\n.msg_sent[data-v-80d584ac]{\n    padding-bottom:20px !important;\n    margin-right:0;\n}\n.messages[data-v-80d584ac] {\n  background: white;\n  padding: 10px;\n  border-radius: 2px;\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);\n  max-width:100%;\n}\n.messages > p[data-v-80d584ac] {\n    font-size: 13px;\n    margin: 0 0 0.2rem 0;\n}\n.messages > time[data-v-80d584ac] {\n    font-size: 11px;\n    color: #ccc;\n}\n.msg_container[data-v-80d584ac] {\n    padding: 10px;\n    overflow: hidden;\n    display: flex;\n}\nimg[data-v-80d584ac] {\n    display: block;\n    width: 100%;\n}\n.avatar[data-v-80d584ac] {\n    position: relative;\n}\n.base_receive > .avatar[data-v-80d584ac]:after {\n    content: \"\";\n    position: absolute;\n    top: 0;\n    right: 0;\n    width: 0;\n    height: 0;\n    border: 5px solid #FFF;\n    border-left-color: rgba(0, 0, 0, 0);\n    border-bottom-color: rgba(0, 0, 0, 0);\n}\n.base_sent[data-v-80d584ac] {\n  justify-content: flex-end;\n  align-items: flex-end;\n}\n.base_sent > .avatar[data-v-80d584ac]:after {\n    content: \"\";\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    width: 0;\n    height: 0;\n    border: 5px solid white;\n    border-right-color: transparent;\n    border-top-color: transparent;\n    box-shadow: 1px 1px 2px rgba(black, 0.2);\n}\n.msg_sent > time[data-v-80d584ac]{\n    float: right;\n}\n.msg_container_base[data-v-80d584ac]::-webkit-scrollbar-track\n{\n    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);\n    background-color: #F5F5F5;\n}\n.msg_container_base[data-v-80d584ac]::-webkit-scrollbar\n{\n    width: 12px;\n    background-color: #F5F5F5;\n}\n.msg_container_base[data-v-80d584ac]::-webkit-scrollbar-thumb\n{\n    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);\n    background-color: #555;\n}\n.btn-group.dropup[data-v-80d584ac]{\n    position:fixed;\n    left:0px;\n    bottom:0;\n}\n", ""]);
+exports.push([module.i, "\nbody[data-v-80d584ac]{\r\n    height:400px;\r\n    bottom: 0;\n}\n.col-md-2[data-v-80d584ac], .col-md-10[data-v-80d584ac]{\r\n    padding:0;\n}\n.panel[data-v-80d584ac]{\r\n    margin-bottom: 0px;\n}\n.chat-window[data-v-80d584ac]{\r\n    bottom:0;\r\n\r\n    width: 1000px;\r\n    margin-left:10px;\n}\n.chat-window > div > .panel[data-v-80d584ac]{\r\n    border-radius: 5px 5px 0 0;\n}\n.icon_minim[data-v-80d584ac]{\r\n    padding:2px 10px;\n}\n.msg_container_base[data-v-80d584ac]{\r\n  background: #e5e5e5;\r\n  margin: 0;\r\n  padding: 0 10px 10px;\r\n  max-height:300px;\r\n  overflow-x:hidden;\n}\n.top-bar[data-v-80d584ac] {\r\n  background: #666;\r\n  color: white;\r\n  padding: 10px;\r\n  position: relative;\r\n  overflow: hidden;\n}\n.msg_receive[data-v-80d584ac]{\r\n    padding-left:0;\r\n    margin-left:0;\n}\n.msg_sent[data-v-80d584ac]{\r\n    padding-bottom:20px !important;\r\n    margin-right:0;\n}\n.messages[data-v-80d584ac] {\r\n  background: white;\r\n  padding: 10px;\r\n  border-radius: 2px;\r\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);\r\n  max-width:100%;\n}\n.messages > p[data-v-80d584ac] {\r\n    font-size: 13px;\r\n    margin: 0 0 0.2rem 0;\n}\n.messages > time[data-v-80d584ac] {\r\n    font-size: 11px;\r\n    color: #ccc;\n}\n.msg_container[data-v-80d584ac] {\r\n    padding: 10px;\r\n    overflow: hidden;\r\n    display: flex;\n}\nimg[data-v-80d584ac] {\r\n    display: block;\r\n    width: 100%;\n}\n.avatar[data-v-80d584ac] {\r\n    position: relative;\n}\n.base_receive > .avatar[data-v-80d584ac]:after {\r\n    content: \"\";\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n    width: 0;\r\n    height: 0;\r\n    border: 5px solid #FFF;\r\n    border-left-color: rgba(0, 0, 0, 0);\r\n    border-bottom-color: rgba(0, 0, 0, 0);\n}\n.base_sent[data-v-80d584ac] {\r\n  justify-content: flex-end;\r\n  align-items: flex-end;\n}\n.base_sent > .avatar[data-v-80d584ac]:after {\r\n    content: \"\";\r\n    position: absolute;\r\n    bottom: 0;\r\n    left: 0;\r\n    width: 0;\r\n    height: 0;\r\n    border: 5px solid white;\r\n    border-right-color: transparent;\r\n    border-top-color: transparent;\r\n    box-shadow: 1px 1px 2px rgba(black, 0.2);\n}\n.msg_sent > time[data-v-80d584ac]{\r\n    float: right;\n}\n.msg_container_base[data-v-80d584ac]::-webkit-scrollbar-track\r\n{\r\n    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);\r\n    background-color: #F5F5F5;\n}\n.msg_container_base[data-v-80d584ac]::-webkit-scrollbar\r\n{\r\n    width: 12px;\r\n    background-color: #F5F5F5;\n}\n.msg_container_base[data-v-80d584ac]::-webkit-scrollbar-thumb\r\n{\r\n    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);\r\n    background-color: #555;\n}\n.btn-group.dropup[data-v-80d584ac]{\r\n    position:fixed;\r\n    left:0px;\r\n    bottom:0;\n}\r\n", ""]);
 
 // exports
 
@@ -8818,7 +8820,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.comment-block[data-v-d6b6866e] {\r\n  padding: 1rem;\r\n  background-color: #fff;\r\n  display: block;\r\n\r\n  width:100%;\r\n  border-radius: 0.1875rem;\r\n  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);\n}\n.bottom-comment[data-v-d6b6866e] {\r\n  color: #acb4c2;\r\n  font-size: 0.875rem;\n}\n.comment-date[data-v-d6b6866e] {\r\n  float: left;\n}\n.comment-actions[data-v-d6b6866e] {\r\n  float: right;\n}\n.comment-actions li[data-v-d6b6866e] {\r\n  display: inline;\r\n  cursor: pointer;\n}\n.comment-actions li.complain[data-v-d6b6866e] {\r\n  padding-right: 0.75rem;\r\n  border-right: 1px solid #e1e5eb;\n}\n.comment-actions li.reply[data-v-d6b6866e] {\r\n  padding-left: 0.75rem;\r\n  padding-right: 0.125rem;\n}\n.comment-actions li[data-v-d6b6866e]:hover {\r\n  color: #0095ff;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.comment-block[data-v-d6b6866e] {\n    background-color: #fff;\n    display: block;\n    width: 100%;\n    border-radius: 0.1875rem;\n    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);\n    padding: 1rem 1rem 50px;\n}\n.bottom-comment[data-v-d6b6866e] {\n    color: #acb4c2;\n    font-size: 0.875rem;\n}\n.comment-date[data-v-d6b6866e] {\n    float: left;\n}\n.comment-actions[data-v-d6b6866e] {\n    float: right;\n}\n.comment-actions li[data-v-d6b6866e] {\n    display: inline;\n    cursor: pointer;\n}\n.comment-actions li.complain[data-v-d6b6866e] {\n    padding-right: 0.75rem;\n    border-right: 1px solid #e1e5eb;\n}\n.comment-actions li.reply[data-v-d6b6866e] {\n    padding-left: 0.75rem;\n    padding-right: 0.125rem;\n}\n.comment-actions li[data-v-d6b6866e]:hover {\n    color: #0095ff;\n}\n", ""]);
 
 // exports
 
@@ -48332,14 +48334,16 @@ var render = function() {
         _vm._l(_vm.comments, function(comment, index) {
           return _c("div", { key: index }, [
             _c("div", { staticClass: "comment-block mb-2" }, [
-              _c("h5", [_vm._v(_vm._s(comment.user.name))]),
+              _c("h5", [_vm._v(_vm._s(comment.user.email))]),
               _vm._v(" "),
               _c("p", { staticClass: "comment-text" }, [
                 _vm._v(_vm._s(comment.content))
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "bottom-comment" }, [
-                _c("div", { staticClass: "comment-date" }, [_vm._v("Time")]),
+                _c("div", { staticClass: "comment-date" }, [
+                  _vm._v(_vm._s(comment.created_at))
+                ]),
                 _vm._v(" "),
                 _c("ul", { staticClass: "comment-actions" }, [
                   _c(
@@ -60859,8 +60863,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\GitHub\InterStudy\InterStudy\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\GitHub\InterStudy\InterStudy\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\InterStudy\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\InterStudy\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
