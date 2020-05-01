@@ -1,14 +1,14 @@
-@extends('layouts.app')
-
+@extends('layouts.navbar')
+@extends('layouts.preloader')
 @section('content')
-    <div class="container">
+    <div class="container h-50">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header"><h4>New Class Info</h4></div>
 
                     <div class="card-body">
-                        <form action="/classrooms" method="POST">
+                        <form action="/classroom" method="POST">
                             @csrf
                             <div>
                                 <label for="name">Class name:</label>

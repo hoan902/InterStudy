@@ -42,10 +42,16 @@
                                     <li class="active"><a href="/"> Home</a></li>
 
                                     @auth
-                                        <li><a href="/classroom">Classroom</a>
+                                        <li><a href="#">Classroom</a>
                                             <ul class="submenu">
-                                                <li><a href="/">No ref</a></li>
-                                                <li><a href="/">No ref</a></li>
+                                                @if(Auth::user()->user_type == 'admin'|| Auth::user()->user_type == 'staff')
+                                                    <li><a href="/classroom">Manage Class</a></li>
+                                                @endif
+                                                @if(Auth::user()->user_type == 'tutor')
+                                                    <li><a href="/classroom/{{Auth::user()->classroomTutor->id}}">My Classroom</a></li>
+                                                @elseif(Auth::user()->user_type == 'student')
+                                                        <li><a href="/classroom/{{Auth::user()->classroomStudent->id}}">My Classroom</a></li>
+                                                    @endif
                                             </ul>
                                         </li>
                                         @if(Auth::user()->user_type == 'admin'|| Auth::user()->user_type == 'staff')

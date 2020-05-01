@@ -8,7 +8,9 @@
                 <!--Posting section-->
                 @if(auth()->user()->user_type !== 'student')
                     <div class="col-md-8 pb-5">
+                        <h1> Class [{{ $classroom->name }}] homepage</h1>
                         <div class="card">
+                            <div class="card-header">Add New Post</div>
                             <div class="card-body">
                                 <label for="post_content">Post something here</label>
                                 <input class="form-control mb-1" type="text" form="postform" name="title"

@@ -13,16 +13,29 @@
                             <tr>
                                 <th>id</th>
                                 <th>Class Name</th>
+                                <th>Action</th>
                             </tr>
                             @forelse($classroom as $classrooms)
-                                <td>
-                                    <strong>
-                                        {{ $classrooms->id }}
-                                    </strong>
-                                </td>
-                                <td>
-                                    <a href="/classroom/{{$classrooms->id}}" class="btn-link">{{ $classrooms->name }}</a>
-                                </td>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            {{ $classrooms->id }}
+                                        </strong>
+                                    </td>
+                                    <td>
+                                        <a href="/classroom/{{$classrooms->id}}"
+                                           class="btn-link">{{ $classrooms->name }}</a>
+                                    </td>
+                                    <td>
+                                        <form action="/classroom/{{ $classrooms->id }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                    class="btn btn-warning">Delete Class</button>
+                                        </form>
+
+                                    </td>
+                                </tr>
                             @empty
                                 <p>No classrooms to show</p>
                             @endforelse

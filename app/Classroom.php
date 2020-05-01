@@ -13,13 +13,13 @@ class Classroom extends Model
     {
         return $this->hasMany(Post::class);
     }
-    public function Students()
+    public function Student()
     {
-        return $this->hasMany(Student::class);
+        return $this->hasOne(Student::class);
     }
-    public function Tutors()
+    public function Tutor()
     {
-        return $this->hasMany(Tutor::class);
+        return $this->hasOne(Tutor::class);
     }
     public function Chatroom()
     {

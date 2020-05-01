@@ -60,9 +60,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(Message::class);
     }
-    public function Classroom()
+    public function classroomTutor()
     {
-        return $this->hasMany(Classroom::class);
+        return $this->hasOneThrough(Classroom::class,Tutor::class);
+    }
+    public function classroomStudent()
+    {
+        return $this->hasOneThrough(Classroom::class,Student::class);
     }
     public function Chatrooms()
     {

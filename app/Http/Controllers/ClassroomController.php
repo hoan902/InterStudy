@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Classroom;
+use App\Student;
+use App\Tutor;
 use Illuminate\Http\Request;
 
 class ClassroomController extends Controller
@@ -14,10 +16,35 @@ class ClassroomController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function view(){
+    public function viewClass(){
+        $this->authorize('StaffAdminAuthorize');
         $classroom = Classroom::latest()->paginate(10);
         return view('classrooms.index',compact('classroom'));
     }
+    public function createClass(){
+        $this->authorize('StaffAdminAuthorize');
+        $tutorClassroom = Tutor::all();
+        $studentClassroom = Student::all();
+
+        return view('classrooms.create',compact('tutorClassroom','studentClassroom'));
+    }
+    public function storeClass(){
+        $this->authorize('StaffAdminAuthorize');
+        $NewClassroom = Request()->validate([
+            'name' => 'required',
+            'tutor_id' => 'required',
+            'student_id' => 'required',
+        ]);
+        Classroom::create($NewClassroom);
+
+        return redirect('/classroom');
+    }
+    public function destroyClass(Classroom $classroom){
+        $this->authorize('StaffAdminAuthorize');
+        $classroom->delete();
+        return redirect('/classroom');
+    }
+
     public function index(Classroom $classroom)
     {
         $posts = $classroom->Posts()->get();
