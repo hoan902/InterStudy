@@ -98,7 +98,19 @@
 
                             </div>
                         </div>
-                    @endforeach
+                    </div>
+
+                </div>
+                <div class="card-body">
+                <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>{{$post->updated_at}}</div>
+                <h2>{{$post->title}}</h2>
+
+                <p class="card-text">
+                        {{$post->content}}
+                </p>
+                </div>
+                <div class="card-footer">
+                <comment :currentuser="{{auth()->user()}}" :post="{{$post}}" :classroom="{{$classroom}}"></comment>
                 </div>
 
             </div>

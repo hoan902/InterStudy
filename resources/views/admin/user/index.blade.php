@@ -3,12 +3,12 @@
 
 @section('content')
     <div class="h-50">
-        <div class="card row-cols-xl-6">
+        <div class="card">
             <div class="card-header">
-                Users
+                <h3>Users list</h3>
             </div>
-            <div class="card-body col-auto">
-                <table style="width:100%">
+            <div class="card-body col-auto table-responsive text-nowrap">
+                <table style="width:100%" class="table table-striped">
                     <tr>
                         <th>id</th>
                         <th>email</th>
@@ -80,6 +80,51 @@
                         <td>No user to show</td>
                     @endforelse
                 </table>
+                            <th>action</th>
+                        </tr>
+                        @forelse($users as $user)
+                            <tr>
+                                <td>{{$users->id}}</td>
+                                <td>{{ $users->email }}</td>
+                                <td>{{ $users->user_type }}</td>
+                                @if($users->student)
+                                    <td>{{ $users->student->name }}</td>
+                                        <td @if($users->student->status == 1)
+                                                style="color: limegreen">
+                                            @else
+                                                style="color: red">
+                                            @endif
+                                            {{ $users->student->status ? 'Enable' : 'Disable' }}</td>
+                                @elseif($users->tutor)
+                                    <td>{{ $users->tutor->name }}</td>
+                                    <td @if($users->tutor->status == 1)
+                                        style="color: limegreen">
+                                        @else
+                                            style="color: red">
+                                        @endif
+                                        {{ $users->tutor->status ? 'Enable' : 'Disable' }}</td>
+                                @elseif($users->staff)
+                                    <td>{{ $users->staff->name }}</td>
+                                    <td @if($users->staff->status == 1)
+                                        style="color: limegreen">
+                                        @else
+                                            style="color: red">
+                                        @endif
+                                        {{ $users->staff->status ? 'Enable' : 'Disable' }}</td>
+                                @elseif($users->admin)
+                                    <td>{{ $users->admin->name }}</td>
+                                    <td @if($users->admin->status == 1)
+                                        style="color: limegreen">
+                                        @else
+                                            style="color: red">
+                                        @endif
+                                        {{ $users->admin->status ? 'Enable' : 'Disable' }}</td>
+                                @endif
+                            </tr>
+                        @empty
+                            <td>No user to show</td>
+                        @endforelse
+                    </table>
             </div>
         </div>
 
