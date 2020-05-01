@@ -3,12 +3,12 @@
 
 @section('content')
     <div class="h-50">
-        <div class="card row-cols-xl-6">
+        <div class="card">
             <div class="card-header">
-                Users
+                <h3>Users list</h3>
             </div>
-            <div class="card-body col-auto">
-                <table style="width:100%">
+            <div class="card-body col-auto table-responsive text-nowrap">
+                <table style="width:100%" class="table table-striped">
                     <tr>
                         <th>id</th>
                         <th>email</th>
