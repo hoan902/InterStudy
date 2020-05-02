@@ -80,6 +80,8 @@ Route::get('/staffs/{staffID}','StaffController@show');
 Route::get('/staffs/{staffID}/edit','StaffController@edit');
 Route::put('/staffs/{staffID}','StaffController@update');
 
+Route::get('/student/{student}/dashboard','StudentController@dashboard');
+
 Route::prefix('admin')->name('admin.')->group(function (){
     Route::resource('/user','UserController',['except'=>['show','create','store']]);
 });
