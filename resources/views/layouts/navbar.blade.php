@@ -48,11 +48,11 @@
                     <!-- Logo -->
                     <div class="col-xl-2 col-lg-2 col-md-2">
                         <div class="logo">
-                            <a href="/"><img src="{{ asset('img/logo/interstudy.png')}} " alt="" width="200px"
-                                             height="50px"></a>
+                            <a href="/"><img src="{{ asset('img/logo/interstudy.png')}}" alt=""
+                                             style="max-width: 150px; max-height: 80px"></a>
                         </div>
                     </div>
-                    <div class="col-xl-10 col-lg-10 col-md-10">
+                    <div class="col-xl-10 col-lg-12 col-md-10">
                         <!-- Main-menu -->
                         <div class="main-menu f-right d-none d-lg-block">
                             <nav>
@@ -60,11 +60,12 @@
                                     <li class="{{ (request()->is('/')) ? 'active' : '' }}"><a href="/"> Home</a></li>
 
                                     @auth
-                                        <li class="{{ (request()->is('classroom*')) ? 'active' : '' }}"><a
+                                        <li class="{{ (request()->is('classroom*', 'myClassrooms*')) ? 'active' : '' }}">
+                                            <a
                                                 href="/myClassrooms">Classroom</a>
                                             <ul class="submenu">
                                                 @if(Auth::user()->user_type == 'admin'|| Auth::user()->user_type == 'staff')
-                                                    <li><a href="/classroomManage">Manage Class</a></li>
+                                                    <li><a href="/classroomManage">Manage Classes</a></li>
                                                 @endif
                                                 @if(Auth::user()->user_type == 'tutor')
                                                     @if(Auth::user()->classroomTutor != null)
@@ -106,7 +107,7 @@
 
                                     @auth
                                         @if(Auth::user()->user_type == 'admin')
-                                            <li class="{{ (request()->is('profile*')) ? 'active' : '' }}"><a
+                                            <li class="{{ (request()->is('profile*', 'home*')) ? 'active' : '' }}"><a
                                                     href="#">{{ Auth::user()->admin->name }}</a>
                                                 <ul class="submenu">
                                                     <li><a href="/home">Dashboard (not implemented)</a></li>
@@ -122,7 +123,7 @@
                                                 </ul>
                                             </li>
                                         @elseif(Auth::user()->user_type == 'staff')
-                                            <li class="{{ (request()->is('profile*')) ? 'active' : '' }}"><a
+                                            <li class="{{ (request()->is('profile*', 'home*')) ? 'active' : '' }}"><a
                                                     href="/profile">{{ Auth::user()->staff->name }}</a>
                                                 <ul class="submenu">
                                                     <li><a href="/home">Dashboard (not implemented)</a></li>
@@ -138,7 +139,7 @@
                                                 </ul>
                                             </li>
                                         @elseif(Auth::user()->user_type == 'student')
-                                            <li class="{{ (request()->is('profile*')) ? 'active' : '' }}"><a
+                                            <li class="{{ (request()->is('profile*', 'home*')) ? 'active' : '' }}"><a
                                                     href="#">{{ Auth::user()->student->name }}</a>
                                                 <ul class="submenu">
                                                     <li><a href="/home">Dashboard (not implemented)</a></li>
@@ -154,7 +155,7 @@
                                                 </ul>
                                             </li>
                                         @elseif(Auth::user()->user_type == 'tutor')
-                                            <li class="{{ (request()->is('profile*')) ? 'active' : '' }}"><a
+                                            <li class="{{ (request()->is('profile*', 'home*')) ? 'active' : '' }}"><a
                                                     href="/profile">{{ Auth::user()->tutor->name }}</a>
                                                 <ul class="submenu">
                                                     <li><a href="/home">Dashboard (not implemented)</a></li>
