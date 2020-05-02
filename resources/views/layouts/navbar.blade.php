@@ -110,7 +110,7 @@
                                             <li class="{{ (request()->is('profile*', 'home*')) ? 'active' : '' }}"><a
                                                     href="#">{{ Auth::user()->admin->name }}</a>
                                                 <ul class="submenu">
-                                                    <li><a href="/home">Dashboard (not implemented)</a></li>
+                                                    <li><a href="/dashboard">Dashboard (not implemented)</a></li>
                                                     <li><a href="/profile">Profile</a></li>
                                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout
@@ -126,7 +126,7 @@
                                             <li class="{{ (request()->is('profile*', 'home*')) ? 'active' : '' }}"><a
                                                     href="/profile">{{ Auth::user()->staff->name }}</a>
                                                 <ul class="submenu">
-                                                    <li><a href="/home">Dashboard (not implemented)</a></li>
+                                                    <li><a href="/dashboard">Dashboard (not implemented)</a></li>
                                                     <li><a href="/profile">Profile</a></li>
                                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout
@@ -142,7 +142,7 @@
                                             <li class="{{ (request()->is('profile*', 'home*')) ? 'active' : '' }}"><a
                                                     href="#">{{ Auth::user()->student->name }}</a>
                                                 <ul class="submenu">
-                                                    <li><a href="/home">Dashboard (not implemented)</a></li>
+                                                    <li><a href="/dashboard">Dashboard (not implemented)</a></li>
                                                     <li><a href="/profile">Profile</a></li>
                                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout
@@ -158,7 +158,7 @@
                                             <li class="{{ (request()->is('profile*', 'home*')) ? 'active' : '' }}"><a
                                                     href="/profile">{{ Auth::user()->tutor->name }}</a>
                                                 <ul class="submenu">
-                                                    <li><a href="/home">Dashboard (not implemented)</a></li>
+                                                    <li><a href="/dashboard">Dashboard (not implemented)</a></li>
                                                     <li><a href="/profile">Profile</a></li>
                                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout
@@ -214,7 +214,7 @@
 
 <!-- Jquery Slick , Owl-Carousel Plugins -->
 <script type="text/javascript" src="{{ asset('js/owl.carousel.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/slick.min.jsjs') }}"></script>
+<script type="text/javascript" src="{{ asset('js/slick.min.js') }}"></script>
 <!-- Date Picker -->
 <script type="text/javascript" src="{{ asset('js/gijgo.min.js') }}"></script>
 <!-- One Page, Animated-HeadLin -->

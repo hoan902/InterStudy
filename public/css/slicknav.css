@@ -49,7 +49,9 @@
 .slicknav_nav {
   clear: both; }
   .slicknav_nav ul {
-    display: block; }
+    display: block;
+  position: sticky
+  }
   .slicknav_nav li {
     display: block; }
   .slicknav_nav .slicknav_arrow {
@@ -102,9 +104,9 @@
     padding: 0;
     margin: 0 0 0 20px; }
   .slicknav_nav .slicknav_row {
-    
+
     /* padding: 5px 10px; */
-    margin: 2px 5px; 
+    margin: 2px 5px;
   }
     .slicknav_nav .slicknav_row:hover {
       -webkit-border-radius: 6px;

@@ -28,8 +28,15 @@ Auth::routes();
 
 Route::get('/profile','UserController@profile');
 Route::post('/send','ChatroomController@send');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'HomeController@index')->name('home');
 Route::get('/disable','StatusController@view');
+
+//DASHBOARD ROUTE
+Route::get('/dashboard', 'HomeController@PersonalTutees');
+Route::get('/dashboard/search', 'HomeController@SearchTutees');
+
+
+
 //Please use route model binding in this route
 //CLASSROOM RELATED ROUTE
 Route::get('/classroomManage','ClassroomController@viewClass');

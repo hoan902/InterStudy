@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Classroom;
+use App\Mail\AddStudentToClassMail;
+use App\Mail\AddToClassMail;
 use App\Student;
 use App\Tutor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ClassroomController extends Controller
 {
@@ -41,8 +44,10 @@ class ClassroomController extends Controller
             'tutor_id' => 'required',
             'student_id' => 'required',
         ]);
-        Classroom::create($NewClassroom);
-        return redirect('/classroomManage');
+        $CreatedClass = Classroom::create($NewClassroom);
+        Mail::to($CreatedClass->tutor->user->email)->send(new AddToClassMail());
+        Mail::to($CreatedClass->student->user->email)->send(new AddStudentToClassMail());
+        return redirect('/classroomManage',compact('CreatedClass'));
     }
     /**
      * EDIT AND UPDATE CLASS (for staff and admin function)

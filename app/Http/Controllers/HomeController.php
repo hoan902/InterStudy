@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classroom;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,5 +25,17 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+    /*
+     * Show personal tutees class
+     */
+    public function PersonalTutees(){
+        $classroom = Classroom::latest()->paginate(10);
+        return view('home',compact('classroom'));
+    }
+    public function SearchTutees(Request $request){
+        $search = $request->get('search');
+        $classroom = Classroom::latest()->where('name','like', '%'.$search.'%')->paginate(10);
+        return view('home',compact('classroom'));
     }
 }
