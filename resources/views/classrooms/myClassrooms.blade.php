@@ -50,7 +50,7 @@
                                                     </strong>
                                                 </td>
                                                 <td>
-                                                    <a href="/myClassrooms/{{$classrooms->id}}"
+                                                    <a href="/classroom/{{$classrooms->id}}"
                                                        class="btn-link">{{ $classrooms->name }}</a>
                                                 </td>
                                                 <td>
