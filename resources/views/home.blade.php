@@ -19,12 +19,6 @@
                 <div class="card">
                     <div class="card-header">Dashboard</div>
 
-                    <div>
-                        @foreach(Auth::user()->notifications as $notifications)
-                            <p>{{ $notifications->data['data'] }}</p>
-                        @endforeach
-                    </div>
-
                     @if(Auth::user()->user_type === 'tutor')
                         <div class="card-body table-bordered table-responsive text-nowrap">
                             <h4 class="text-center">{{ Auth::user()->tutor->name }} Personal Tutees list</h4>
@@ -82,6 +76,65 @@
                                         </div>
                                     </div>
                                 </div>
+                        </div>
+                    @elseif(Auth::user()->user_type == 'student')
+                        <div >
+                            <div class="text-centered">
+                                <div class="form-text">
+                                    <img src="/ProfileImage/{{ $student->profile_image }}" style="width: 150px; height:150px; float: left; border-radius: 50%; margin-right: 25px;">
+                                </div>
+                                <div class="card">
+                                    <div class="form-control-plaintext">
+                                        <!--Ask Hoan to access the avatar cuz i don't know abt his link-->
+                                        <strong>Student ID</strong>
+                                        <p>{{$student->id}}</p>
+                                        <strong>Student name</strong>
+                                       <P>{{$student->name}}</P>
+
+                                    </div>
+                                    <div class="form-control-plaintext">
+                                        <strong>Student phone</strong>
+                                        <P>{{$student->phone}}</P>
+
+                                        <strong>Student's userid</strong>
+                                        <P>{{$student->user_id}}</P>
+
+                                        <strong>Student address</strong>
+                                        <P>{{$student->address}}</P>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                @if($classrooms)
+                                    @foreach($classrooms as $classroom)
+                                        <div class="card col-3">
+                                            <div class="card-header">
+                                                Classroom ID: {{$classroom->id}}
+                                                Classroom name: {{$classroom->name}}
+                                            </div>
+                                            <div class="card-body">
+                                                Tutor: {{$classroom->Tutor->name}}
+                                            </div>
+                                            <div class="card-footer">
+                                                Created_at: {{$classroom->created_at}};
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <div>Not assign to any class yet</div>
+                                @endif
+                            </div>
+                            @foreach($comments as $comment)
+                                <div class="card">
+                                    <div class="card-header">
+                                        {{$comment->created_at}}
+                                    </div>
+                                    <div class="card-body">
+                                        This student has commented on post {{$comment->Post->id}} with the following content: {{$comment->content}}
+                                    </div>
+                                </div>
+                            @endforeach
+
                         </div>
                     @endif
                     </div>

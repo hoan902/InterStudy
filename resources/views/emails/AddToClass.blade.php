@@ -1,5 +1,5 @@
 @component('mail::message')
-# You have been assigned to new classroom
+#You have been assigned to new classroom
 
 Hello tutor from InterStudy,
 

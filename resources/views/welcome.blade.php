@@ -32,11 +32,15 @@
                                     <p data-animation="fadeInUp" data-delay=".8s">You are logged in! <br>
                                         To continue to your dashboard, press the button below.</p>
                                     <!-- Slider btn -->
+
                                     <div class="slider-btns">
                                         <!-- Hero-btn -->
                                         <li><a data-animation="fadeInLeft" data-delay="1.0s" class="btn radius-btn"
-                                               href="{{ route('home') }}">{{ __('Dashboard') }}</a></li>
+                                               @if(Auth::user()->user_type == 'student')
+                                               href="/dashboard/{{ Auth::user()->student->id }}"
+                                                @endif>{{ __('Dashboard') }}</a></li>
                                     </div>
+
                                 @endguest
                             </div>
                         </div>
