@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="mx-auto flex-column d-block">
+                            <div class="flex-column d-block" style="max-width: 321px">
                                 <div class="card">
                                     <div class="card-header">Current classes</div>
                                     @if($classrooms)
@@ -64,7 +64,7 @@
                                 </div>
                             </div>
 
-                            <div class="mx-auto flex-column d-block">
+                            <div class="flex-column float-right d-block" style="max-width: 547px">
                                 @foreach($comments as $comment)
                                     <div class="card" style="padding-bottom: 10px">
                                         <div class="card-header">
@@ -79,6 +79,7 @@
                                     </div>
                                 @endforeach
                             </div>
+
                         </div>
                     </div>
                 </div>

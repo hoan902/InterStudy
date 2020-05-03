@@ -32,7 +32,7 @@ Route::get('/dashboard', 'HomeController@index')->name('home');
 Route::get('/disable','StatusController@view');
 
 //DASHBOARD ROUTE
-Route::get('/dashboard', 'HomeController@PersonalTutees');
+Route::get('/dashboardTutor', 'HomeController@PersonalTutees');
 Route::get('/dashboard/search', 'HomeController@SearchTutees');
 Route::get('/dashboard/{student}','StudentController@dashboard');
 Route::get('/dashboard','HomeController@dashboardStaff');

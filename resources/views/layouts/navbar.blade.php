@@ -125,7 +125,7 @@
                                             <li class="{{ (request()->is('profile*', 'home*')) ? 'active' : '' }}"><a
                                                     href="/profile">{{ Auth::user()->staff->name }}</a>
                                                 <ul class="submenu">
-                                                    <li><a href="/dashboard">Dashboard (not implemented)</a></li>
+                                                    <li><a href="/dashboard">Dashboard</a></li>
                                                     <li><a href="/profile">Profile</a></li>
                                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout
@@ -157,7 +157,7 @@
                                             <li class="{{ (request()->is('profile*', 'home*')) ? 'active' : '' }}"><a
                                                     href="/profile">{{ Auth::user()->tutor->name }}</a>
                                                 <ul class="submenu">
-                                                    <li><a href="/dashboard">Dashboard</a></li>
+                                                    <li><a href="/dashboardTutor">Dashboard</a></li>
                                                     <li><a href="/profile">Profile</a></li>
                                                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout

@@ -34,12 +34,12 @@ class HomeController extends Controller
      */
     public function PersonalTutees(){
         $classroom = Classroom::latest()->paginate(10);
-        return view('home',compact('classroom'));
+        return view('tutors.dashboard',compact('classroom'));
     }
     public function SearchTutees(Request $request){
         $search = $request->get('search');
         $classroom = Classroom::latest()->where('name','like', '%'.$search.'%')->paginate(10);
-        return view('home',compact('classroom'));
+        return view('tutors.dashboard',compact('classroom'));
     }
 
     public function dashboard(Student $student){

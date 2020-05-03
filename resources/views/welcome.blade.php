@@ -38,7 +38,10 @@
                                         <li><a data-animation="fadeInLeft" data-delay="1.0s" class="btn radius-btn"
                                                @if(Auth::user()->user_type == 'student')
                                                href="/dashboard/{{ Auth::user()->student->id }}"
-                                                @endif>{{ __('Dashboard') }}</a></li>
+                                               @else
+                                               href="/dashboardTutor"
+                                                @endif
+                                            >{{ __('Dashboard') }}</a></li>
                                     </div>
 
                                 @endguest
@@ -48,7 +51,8 @@
                             <div class="hero__img" data-animation="fadeInRight"
                                  data-delay="1s">
                                 <img src="{{ asset('img/greenwich.jpg') }}" class="img-fluid rounded"
-                                     alt="Greenwich image" style="max-width: 1000px; height: auto; float: right; padding-top: 50px;">
+                                     alt="Greenwich image"
+                                     style="max-width: 1000px; height: auto; float: right; padding-top: 50px;">
                             </div>
                         </div>
                     </div>
