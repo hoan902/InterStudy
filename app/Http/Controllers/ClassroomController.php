@@ -47,7 +47,7 @@ class ClassroomController extends Controller
         $CreatedClass = Classroom::create($NewClassroom);
         Mail::to($CreatedClass->tutor->user->email)->send(new AddToClassMail());
         Mail::to($CreatedClass->student->user->email)->send(new AddStudentToClassMail());
-        return redirect('/classroomManage',compact('CreatedClass'));
+        return redirect('/classroomManage');
     }
     /**
      * EDIT AND UPDATE CLASS (for staff and admin function)
