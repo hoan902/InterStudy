@@ -11,15 +11,15 @@
                         <form action="/classroomManage/{{$classroom->id}}" method="POST">
                             @method('PUT')
                             @csrf
-                            <div>
+                            <div class="form-group">
                                 <label for="name">Class name:</label>
-                                <input id="name" type="text" name="name" autocomplete="off" value="{{$classroom->name}}">
+                                <input class="form-control" id="name" type="text" name="name" autocomplete="off" value="{{$classroom->name}}">
                                 @error('name')<p style="color: red">{{$message}}</p> @enderror
                             </div>
 
-                            <div>
+                            <div class="form-group">
                                 <label for="tutor_id">Tutor of this class</label>
-                                <select id="tutor_id" type="radio" name="tutor_id" autocomplete="off" value="{{$classroom->tutor_id}}">
+                                <select class="form-control" id="tutor_id" type="radio" name="tutor_id" autocomplete="off" value="{{$classroom->tutor_id}}">
                                     <option value="{{ $classroom->tutor_id }}" selected hidden>{{ $classroom->tutor->name }}</option>
                                     @forelse(\App\Tutor::all() as $classTutor)
                                         <option value={{ $classTutor->id }}>{{ $classTutor->name }}</option>
@@ -30,9 +30,9 @@
                                 @error('tutor_id')<p style="color: red">{{$message}}</p> @enderror
                             </div>
 
-                            <div>
+                            <div class="form-group">
                                 <label for="student_id">Student of this class</label>
-                                <select id="student_id" type="radio" name="student_id" autocomplete="off" value="{{$classroom->student_id}}">
+                                <select class="form-control" id="student_id" type="radio" name="student_id" autocomplete="off" value="{{$classroom->student_id}}">
                                     <option value="{{ $classroom->student_id }}" selected hidden>{{ $classroom->student->name }}</option>
                                     @forelse(\App\Student::all() as $studentClass)
                                         <option value={{ $studentClass->id }}>{{ $studentClass->name }}</option>
@@ -42,7 +42,7 @@
                                 </select>
                                 @error('student_id')<p style="color: red">{{$message}}</p> @enderror
                             </div>
-                            <button type="submit">Update classroom</button>
+                            <button type="submit" class="btn btn-primary">Update classroom</button>
                         </form>
                     </div>
 

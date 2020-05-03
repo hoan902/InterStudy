@@ -34,7 +34,8 @@ Route::get('/disable','StatusController@view');
 //DASHBOARD ROUTE
 Route::get('/dashboard', 'HomeController@PersonalTutees');
 Route::get('/dashboard/search', 'HomeController@SearchTutees');
-
+Route::get('/dashboard/{student}','StudentController@dashboard');
+Route::get('/dashboard','HomeController@dashboardStaff');
 
 
 //Please use route model binding in this route
@@ -87,7 +88,6 @@ Route::get('/staffs/{staffID}','StaffController@show');
 Route::get('/staffs/{staffID}/edit','StaffController@edit');
 Route::put('/staffs/{staffID}','StaffController@update');
 
-Route::get('/dashboard/{student}','HomeController@dashboard');
 
 Route::prefix('admin')->name('admin.')->group(function (){
     Route::resource('/user','UserController',['except'=>['show','create','store']]);

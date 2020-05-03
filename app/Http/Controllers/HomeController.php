@@ -50,4 +50,10 @@ class HomeController extends Controller
 
         return view('home',compact('student'))->with(compact('classrooms'))->with(compact('comments'));
     }
+    public function dashboardStaff(){
+
+        $student = Student::latest()->paginate(10);
+
+        return view('home',compact('student'));
+    }
 }
