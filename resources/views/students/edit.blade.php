@@ -17,31 +17,31 @@
                                 <input class="card" id="profile_image" type="file" name="profile_image" autocomplete="off" value="{{ $studentID->profile_image }}">
                                 @error('profile_image')<p style="color: red">{{$message}}</p> @enderror
                             </div>
-                            <div>
+                            <div class="form-group">
                                 <label for="name">Name:</label>
-                                <input id="name" type="text" name="name" autocomplete="off" value="{{ $studentID->name }}">
+                                <input class="form-control" id="name" type="text" name="name" autocomplete="off" value="{{ $studentID->name }}">
                                 @error('name')<p style="color: red">{{$message}}</p> @enderror
                             </div>
 
-                            <div>
+                            <div class="form-group">
                                 <label for="phone">Phone:</label>
-                                <input id="phone" type="number" name="phone" autocomplete="off" value="{{ $studentID->phone }}">
+                                <input class="form-control" id="phone" type="number" name="phone" autocomplete="off" value="{{ $studentID->phone }}">
                                 @error('phone')<p style="color: red">{{$message}}</p> @enderror
                             </div>
 
-                            <div>
+                            <div class="form-group">
                                 <label for="address">Address:</label>
-                                <input id="address" type="text" name="address" autocomplete="off" value="{{ $studentID->address }}">
+                                <input class="form-control" id="address" type="text" name="address" autocomplete="off" value="{{ $studentID->address }}">
                                 @error('address')<p style="color: red">{{$message}}</p> @enderror
                             </div>
-                            <div>
+                            <div class="form-group">
                                 <label for="DoB">Day of Birth:</label>
-                                <input id="DoB" type="date" name="DoB" autocomplete="off" value="{{ $studentID->DoB }}">
+                                <input class="form-control" id="DoB" type="date" name="DoB" autocomplete="off" value="{{ $studentID->DoB }}">
                                 @error('DoB')<p style="color: red">{{$message}}</p> @enderror
                             </div>
-                            <div>
+                            <div class="form-group card">
                                 <label for="gender">Gender:</label>
-                                <select id="gender" type="radio" name="gender" autocomplete="off">
+                                <select class="form-control" id="gender" type="radio" name="gender" autocomplete="off">
                                     <option value="Male" @if($studentID->gender == 'Male') selected @endif>Male</option>
                                     <option value="Female"@if($studentID->gender == 'Female') selected @endif>Female</option>
                                     <option value="Other"@if($studentID->gender == 'Other') selected @endif>Other</option>
@@ -55,7 +55,7 @@
                                 <!--This iz for testing, to see what the user type are taken, might make it hidden later-->
                                 <!--There a hole in here, user can mesh with url and go direct to here, so this profile might for user who is not a student, NID FIX-->
                             </div>
-                            <button type="submit">Update</button>
+                            <button class="btn btn-primary" type="submit">Update</button>
                         </form>
                     </div>
 
