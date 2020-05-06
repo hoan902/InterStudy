@@ -15,6 +15,6 @@ class Student extends Model
 
     public function Classroom()
     {
-        return $this->HasMany(Classroom::class);
+        return $this->HasOne(Classroom::class);
     }
 }
