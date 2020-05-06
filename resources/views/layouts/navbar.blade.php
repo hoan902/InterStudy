@@ -5,7 +5,6 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
 
@@ -204,9 +203,11 @@
 <script type="text/javascript" src="{{ asset('js/vendor/modernizr-3.5.0.min.js') }}"></script>
 
 <!-- Jquery, Popper, Bootstrap -->
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/vendor/jquery-1.12.4.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+<script src="{{ asset('js/app.js') }}" defer></script>
 <!-- Jquery Mobile Menu -->
 <script type="text/javascript" src="{{ asset('js/jquery.slicknav.min.js') }}"></script>
 
