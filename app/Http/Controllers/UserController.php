@@ -94,6 +94,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $this->authorize('StaffAdminAuthorize');
+        $user->delete();
+        return redirect('/admin/user');
     }
 }

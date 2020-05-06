@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
         ]);
         $adminProfile = Admin::create([
             'name' => 'Admin Name',
-            'phone' => '1234567890',
+            'phone' => '12345678909',
             'address' => 'admin house 123',
             'user_id' => 1,
             'status' => 1,
@@ -44,7 +44,7 @@ class UsersTableSeeder extends Seeder
         ]);
         $staffProfile = Staff::create([
             'name' => 'John Staff',
-            'phone' => '1234567890',
+            'phone' => '12345678908',
             'address' => 'staff house 123',
             'user_id' => 2,
             'status' => 1,
@@ -59,7 +59,7 @@ class UsersTableSeeder extends Seeder
         ]);
         $staffProfile2 = Staff::create([
             'name' => 'John Staff 2',
-            'phone' => '1234567890',
+            'phone' => '12345678907',
             'address' => 'staff2 house 123',
             'user_id' => 3,
             'status' => 1,
@@ -76,7 +76,7 @@ class UsersTableSeeder extends Seeder
         ]);
         $studentProfile = Student::create([
             'name' => 'John Student',
-            'phone' => '1234567890',
+            'phone' => '12345678906',
             'address' => 'student house 123',
             'user_id' => 4,
             'status' => 1,
@@ -91,7 +91,7 @@ class UsersTableSeeder extends Seeder
         ]);
         $student2Profile = Student::create([
             'name' => 'John Student2',
-            'phone' => '1234567890',
+            'phone' => '12345678901',
             'address' => 'student2 house 123',
             'user_id' => 5,
             'status' => 1,
@@ -108,7 +108,7 @@ class UsersTableSeeder extends Seeder
         ]);
         $tutorProfile = Tutor::create([
             'name' => 'Jane Tutor',
-            'phone' => '1234567890',
+            'phone' => '12345678902',
             'address' => 'tutor house 123',
             'user_id' => 6,
             'status' => 1,
@@ -123,7 +123,7 @@ class UsersTableSeeder extends Seeder
         ]);
         $tutor2Profile = Tutor::create([
             'name' => 'Jane Tutor2',
-            'phone' => '1234567890',
+            'phone' => '12345678903',
             'address' => 'tutor2 house 123',
             'user_id' => 7,
             'status' => 1,
