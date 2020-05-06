@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Comment;
 use App\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StudentController extends Controller
 {
@@ -99,7 +100,10 @@ class StudentController extends Controller
             $studentID->user()->associate($studentID->user_id);
             $studentID->save();
         }
+        if(Auth::user()->user_type == 'staff'||Auth::user()->user_type == 'admin'){
         return redirect('/students/'. $studentID->id);
+        }
+        return redirect('/profile');
     }
 
     //Remove the specified student from storage.
