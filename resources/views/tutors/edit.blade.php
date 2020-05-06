@@ -44,9 +44,9 @@
                             <div class="form-group list-group">
                                 <label for="gender">Gender:</label>
                                 <select class="form-control" id="gender" type="radio" name="gender" autocomplete="off">
-                                    <option value="Male" @if($tutorID->gender == 'Male')  @endif>Male</option>
-                                    <option value="Female"@if($tutorID->gender == 'Female') @endif>Female</option>
-                                    <option value="Other"@if($tutorID->gender == 'Other')  @endif>Other</option>
+                                    <option value="Male" @if($tutorID->gender == 'Male') selected @endif>Male</option>
+                                    <option value="Female"@if($tutorID->gender == 'Female') selected @endif>Female</option>
+                                    <option value="Other"@if($tutorID->gender == 'Other') selected @endif>Other</option>
                                 </select>
                                 @error('gender')<p style="color: red">{{$message}}</p> @enderror
                             </div>
