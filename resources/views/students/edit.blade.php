@@ -39,7 +39,7 @@
                                 <input class="form-control" id="DoB" type="date" name="DoB" autocomplete="off" value="{{ $studentID->DoB }}">
                                 @error('DoB')<p style="color: red">{{$message}}</p> @enderror
                             </div>
-                            <div class="form-group card">
+                            <div class="form-group list-group">
                                 <label for="gender">Gender:</label>
                                 <select class="form-control" id="gender" type="radio" name="gender" autocomplete="off">
                                     <option value="Male" @if($studentID->gender == 'Male') selected @endif>Male</option>

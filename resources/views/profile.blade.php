@@ -6,17 +6,25 @@
         <div class="row h-50 justify-content-center">
             <div class="form-text">
                 @if(Auth::user()->user_type == 'tutor')
-                    <img src="/ProfileImage/{{ Auth::user()->tutor->profile_image }}" style="width: 150px; height:150px; float: left; border-radius: 50%; margin-right: 25px;">
-                    <h1>{{ Auth::user()->tutor->name }}</h1>
+                    <div class="list-group">
+                        <img src="/ProfileImage/{{ Auth::user()->tutor->profile_image }}" style="width: 150px; height:150px; float: left; border-radius: 50%; margin-right: 25px;">
+                        <h1>{{ Auth::user()->tutor->name }}</h1>
+                    </div>
                 @elseif(Auth::user()->user_type == 'student')
-                    <img src="/ProfileImage/{{ Auth::user()->student->profile_image }}" style="width: 150px; height:150px; float: left; border-radius: 50%; margin-right: 25px;">
-                    <h1>{{ Auth::user()->student->name }}</h1>
+                    <div class="list-group">
+                        <img src="/ProfileImage/{{ Auth::user()->student->profile_image }}" style="width: 150px; height:150px; float: left; border-radius: 50%; margin-right: 25px;">
+                        <h1>{{ Auth::user()->student->name }}</h1>
+                    </div>
                 @elseif(Auth::user()->user_type == 'staff')
-                    <img src="/ProfileImage/{{ Auth::user()->staff->profile_image }}" style="width: 150px; height:150px; float: left; border-radius: 50%; margin-right: 25px;">
-                    <h1>{{ Auth::user()->staff->name }}</h1>
+                    <div class="list-group">
+                        <img src="/ProfileImage/{{ Auth::user()->staff->profile_image }}" style="width: 150px; height:150px; float: left; border-radius: 50%; margin-right: 25px;">
+                        <h1>{{ Auth::user()->staff->name }}</h1>
+                    </div>
                 @elseif(Auth::user()->user_type == 'admin')
-                    <img src="/ProfileImage/{{ Auth::user()->admin->profile_image }}" style="width: 150px; height:150px; float: left; border-radius: 50%; margin-right: 25px;">
-                    <h1>{{ Auth::user()->admin->name }}</h1>
+                    <div class="list-group">
+                        <img src="/ProfileImage/{{ Auth::user()->admin->profile_image }}" style="width: 150px; height:150px; float: left; border-radius: 50%; margin-right: 25px;">
+                        <h1>{{ Auth::user()->admin->name }}</h1>
+                    </div>
                 @endif
 
             </div>
@@ -43,6 +51,7 @@
 
                             <strong>Gender</strong>
                             <p>{{ Auth::user()->tutor->gender }}</p>
+                            <div><a data-animation="fadeInLeft" data-delay="1.0s" class="btn radius-btn" href="/tutors/{{Auth::user()->tutor->id}}/edit">Edit profile</a></div>
                         @elseif(Auth::user()->user_type == 'student')
                             <strong>Name</strong>
                             <p>{{ Auth::user()->student->name }}</p>
@@ -61,6 +70,7 @@
 
                             <strong>Gender</strong>
                             <p>{{ Auth::user()->student->gender }}</p>
+                            <div><a data-animation="fadeInLeft" data-delay="1.0s" class="btn radius-btn" href="/students/{{Auth::user()->student->id}}/edit">Edit profile</a></div>
                         @elseif(Auth::user()->user_type == 'staff')
                             <strong>Name</strong>
                             <p>{{ Auth::user()->staff->name }}</p>
@@ -79,6 +89,7 @@
 
                             <strong>Gender</strong>
                             <p>{{ Auth::user()->staff->gender }}</p>
+                            <div><a data-animation="fadeInLeft" data-delay="1.0s" class="btn radius-btn" href="/staffs/{{Auth::user()->staff->id}}/edit">Edit profile</a></div>
                         @elseif(Auth::user()->user_type == 'admin')
                             <strong>Name</strong>
                             <p>{{ Auth::user()->admin->name }}</p>
