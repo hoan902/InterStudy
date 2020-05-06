@@ -72,7 +72,7 @@
                                                 <div class="h6 dropdown-header">Configuration</div>
                                                 @if(auth()->user()->user_type != 'student')
                                                     <a class="dropdown-item"
-                                                       href="/classroom/{{$classroom->id}}/post/{{$post->id}}/delete">Delete
+                                                       href="/post/{{$post->id}}/delete">Delete
                                                         Post</a>
                                                     <a class="dropdown-item"
                                                        href="/classroom/{{$classroom->id}}/post/{{$post->id}}/edit">Edit
