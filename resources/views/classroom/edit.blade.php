@@ -4,7 +4,7 @@
 @section('content')
 <div id="app">
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center h-50">
             <!--Posting section-->
             <div class="col-md-8 pb-5">
                 <div class="card">

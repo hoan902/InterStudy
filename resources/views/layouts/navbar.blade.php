@@ -61,7 +61,7 @@
                                     @auth
                                         <li class="{{ (request()->is('classroom*', 'myClassrooms*')) ? 'active' : '' }}">
                                             <a
-                                                href="/myClassrooms">Classroom</a>
+                                                href="#">Classroom</a>
                                             <ul class="submenu">
                                                 @if(Auth::user()->user_type == 'admin'|| Auth::user()->user_type == 'staff')
                                                     <li><a href="/classroomManage">Manage Classes</a></li>
