@@ -19,6 +19,7 @@ class CreateClassroomsTable extends Migration
             $table->unsignedBigInteger('tutor_id');
             $table->unsignedBigInteger('student_id');
             $table->boolean('status')->default(1);
+            $table->unique('tutor_id','student_id');
             $table->timestamps();
             // if the tutor profile is deleted, this classrooms is deleted
             $table->foreign('tutor_id')
