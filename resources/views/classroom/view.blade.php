@@ -78,8 +78,6 @@
                                                        href="/classroom/{{$classroom->id}}/post/{{$post->id}}/edit">Edit
                                                         Post</a>
                                                 @endif
-
-                                                <a class="dropdown-item" href="#">Something 3</a>
                                             </div>
                                         </div>
                                     </div>
