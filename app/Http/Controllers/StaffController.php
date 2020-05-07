@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Staff;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class StaffController extends Controller
 {
@@ -97,6 +98,9 @@ class StaffController extends Controller
             $staffID->user()->associate($staffID->user_id);
             $staffID->save();
         }
-        return redirect('/staffs/'. $staffID->id);
+        if(Auth::user()->user_type == 'admin'){
+            return redirect('/staffs/'. $staffID->id);
+        }
+        return redirect('/profile');
     }
 }
