@@ -45,4 +45,4 @@ Run these command if this is your first time before run the website
 - php artisan key:generate
 - php artisan migrate:fresh (if first time)
 To run the website
- php artisan serve and locate to http://127.0.0.1:8000/
+ php artisan serve and locate to the link shown in the console
